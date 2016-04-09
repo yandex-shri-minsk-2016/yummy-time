@@ -10,13 +10,14 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "postinstall": "node_modules/.bin/bower install"
   },
-  "repository": "",
+  "repository": "https://github.com/yandex-shri-minsk-2016/yummy-time/",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "tam nom-nom",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
