@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.4.12"
+  },
+  "devDependencies": {
+    "json-api": "^2.15.7"
+  }
+}
