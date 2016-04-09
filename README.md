@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/yandex-shri-minsk-2016/yummy-time.png?label=ready&title=Ready)](https://waffle.io/yandex-shri-minsk-2016/yummy-time)
 # yummy-time
 
 ## Client installation
