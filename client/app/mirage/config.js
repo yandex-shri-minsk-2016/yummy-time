@@ -7,24 +7,28 @@ export default function() {
           id: 1,
           type: "order",
           attributes: {
-            organizerName: "Пицца Темпо",
-            orderTime: "14:00",
-            moneyRequired: 300000,
-            moneyCurrent: 100000
+            place: "Пицца Темпо",
+            "order-time": "14:00",
+            manager: "Vital",
+            amount: 300000
           }
         },
         {
           id: 2,
           type: "order",
           attributes: {
-            organizerName: "Пицца Темпо",
-            orderTime: "16:00",
-            moneyRequired: 200000,
-            moneyCurrent: 0
+            place: "Лидо",
+            "order-time": "16:00",
+            manager: "Vasia",
+            amount: 200000
           }
         },
       ]
     };
+  });
+
+  this.post('/orders', function(db, request) {
+    return JSON.parse(request.requestBody);
   });
 
 }
