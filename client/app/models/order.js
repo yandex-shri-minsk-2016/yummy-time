@@ -1,8 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  organizerName: DS.attr('string'),
+  place: DS.attr('string'),
+  manager: DS.attr('string'),
   orderTime: DS.attr('string'),
-  moneyRequired: DS.attr('number'),
-  moneyCurrent: DS.attr('number')
+  amount: DS.attr('number')
 });

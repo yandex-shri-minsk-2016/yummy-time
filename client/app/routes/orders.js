@@ -7,22 +7,20 @@ export default Ember.Route.extend({
         id: 1,
         type: "order",
         attributes: {
-          organizerName: "Пицца Темпо",
+          place: "Пицца Темпо",
           orderTime: "14:00",
           manager: "Vital",
-          moneyRequired: 300000,
-          moneyCurrent: 100000
+          amount: 300000
         }
       },
       {
         id: 2,
         type: "order",
         attributes: {
-          organizerName: "Лидо",
+          place: "Лидо",
           orderTime: "16:00",
           manager: "Vasia",
-          moneyRequired: 200000,
-          moneyCurrent: 0
+          amount: 200000
         }
       },
     ]
