@@ -1,2 +1,21 @@
-<form class="order-form">
+<form class="form order-form">
+  <p>
+    <label>
+      {{input value=place class="form__control"}}
+    </label>
+  </p>
+
+  <p>
+    <label>
+      {{input value=manager class="form__control"}}
+    </label>
+  </p>
+
+  <p>
+    <label>
+      {{input value=orderTime class="form__control"}}
+    </label>
+  </p>
+
+  <button {{action "submit"}} type="submit" class="button button_cta">Добавить заказ</button>
 </form>
