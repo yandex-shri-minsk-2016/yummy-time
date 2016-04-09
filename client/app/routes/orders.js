@@ -9,6 +9,7 @@ export default Ember.Route.extend({
         attributes: {
           organizerName: "Пицца Темпо",
           orderTime: "14:00",
+          manager: "Vital",
           moneyRequired: 300000,
           moneyCurrent: 100000
         }
@@ -19,6 +20,7 @@ export default Ember.Route.extend({
         attributes: {
           organizerName: "Лидо",
           orderTime: "16:00",
+          manager: "Vasia",
           moneyRequired: 200000,
           moneyCurrent: 0
         }
