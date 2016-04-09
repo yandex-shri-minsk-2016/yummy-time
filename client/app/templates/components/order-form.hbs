@@ -1,31 +1,31 @@
 <form class="form order-form">
   <div class="form__row">
     <label class="form__label">
-      <span class="form__label-text"></span>
+      <span class="form__label-text">Заведение</span>
       {{input value=place class="form__field"}}
     </label>
   </div>
 
   <div class="form__row">
     <label class="form__label">
-      <span class="form__label-text"></span>
+      <span class="form__label-text">Ваше имя</span>
       {{input value=manager class="form__field"}}
     </label>
   </div>
 
   <div class="form__row">
     <label class="form__label">
-      <span class="form__label-text"></span>
+      <span class="form__label-text">Время заказа</span>
       {{input value=orderTime class="form__field"}}
-    </label>
-  </p>
-
-  <div>
-    <label class="form__label">
-      <span class="form__label-text"></span>
-      {{input value=amount class="form__control"}}
     </label>
   </div>
 
-  <button {{action "submit"}} type="submit" class="button button_cta">Добавить заказ</button>
+  <div>
+    <label class="form__label">
+      <span class="form__label-text">Минимальный заказ, руб</span>
+      {{input value=amount class="form__field"}}
+    </label>
+  </div>
+
+  <button {{action "submit"}} type="submit" class="button button_submit">Добавить заказ</button>
 </form>
