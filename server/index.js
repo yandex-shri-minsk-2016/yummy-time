@@ -6,7 +6,13 @@ var path     = require('path')
   , mongoose = require('mongoose');
 
 // Start by loading up all our mongoose models and connecting.
-mongoose.connect('mongodb://localhost/example');
+mongoose.connect('mongodb://localhost/test');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('we are connected!');
+});
 
 var deliveryServiceSchema = require('./src/models/deliveryService');
 var orderSchema = require('./src/models/order');
@@ -16,7 +22,7 @@ var models = {
   DeliveryServiceModel: mongoose.model('deliveryService', deliveryServiceSchema),
   OrderModel: mongoose.model('order', orderSchema),
   OrderItemModel: mongoose.model('orderItem', orderItemSchema)
-}
+};
 
 // And registering them with the json-api library.
 // Below, we load up every resource type and give each the same adapter; in
@@ -51,7 +57,7 @@ app.use(function(req, res, next) {
 // http://github.com/ethanresnick/express-simple-router. To protect some
 // routes, check out http://github.com/ethanresnick/express-simple-firewall.
 app.get("/", Front.docsRequest.bind(Front));
-app.route("/:type(deliveryService)")
+app.route("/:type(deliveryService)");
 //  .get(apiReqHandler).post(apiReqHandler).patch(apiReqHandler);
 //app.route("/:type(people|organizations|schools)/:id")
 //  .get(apiReqHandler).patch(apiReqHandler).delete(apiReqHandler);
