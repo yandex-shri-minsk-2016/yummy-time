@@ -8,10 +8,10 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build",
-    "start": "ember server",
-    "test": "ember test",
-    "postinstall": "node_modules/.bin/bower install"
+    "build": "./node_modules/.bin/ember build",
+    "start": "./node_modules/.bin/ember server",
+    "test": "./node_modules/.bin/ember test",
+    "postinstall": "./node_modules/.bin/bower install"
   },
   "repository": "https://github.com/yandex-shri-minsk-2016/yummy-time/",
   "engines": {
