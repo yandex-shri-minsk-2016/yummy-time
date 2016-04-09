@@ -1,27 +1,31 @@
 <form class="form order-form">
-  <p>
-    <label>
-      {{input value=place class="form__control"}}
+  <div class="form__row">
+    <label class="form__label">
+      <span class="form__label-text"></span>
+      {{input value=place class="form__field"}}
+    </label>
+  </div>
+
+  <div class="form__row">
+    <label class="form__label">
+      <span class="form__label-text"></span>
+      {{input value=manager class="form__field"}}
+    </label>
+  </div>
+
+  <div class="form__row">
+    <label class="form__label">
+      <span class="form__label-text"></span>
+      {{input value=orderTime class="form__field"}}
     </label>
   </p>
 
-  <p>
-    <label>
-      {{input value=manager class="form__control"}}
-    </label>
-  </p>
-
-  <p>
-    <label>
-      {{input value=orderTime class="form__control"}}
-    </label>
-  </p>
-
-  <p>
-    <label>
+  <div>
+    <label class="form__label">
+      <span class="form__label-text"></span>
       {{input value=amount class="form__control"}}
     </label>
-  </p>
+  </div>
 
   <button {{action "submit"}} type="submit" class="button button_cta">Добавить заказ</button>
 </form>
