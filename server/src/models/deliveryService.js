@@ -1,7 +1,6 @@
 "use strict";
 
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
 var deliveryServiceSchema = new Schema({
   name: {
@@ -19,3 +18,5 @@ var deliveryServiceSchema = new Schema({
     required: true
   }
 });
+
+module.exports = mongoose.model('deliveryService', deliveryServiceSchema);
