@@ -8,7 +8,7 @@ export default function() {
           type: "order",
           attributes: {
             place: "Пицца Темпо",
-            "order-time": "14:00",
+            time: "14:00",
             manager: "Vital",
             amount: 300000
           }
@@ -18,7 +18,7 @@ export default function() {
           type: "order",
           attributes: {
             place: "Лидо",
-            "order-time": "16:00",
+            time: "16:00",
             manager: "Vasia",
             amount: 200000
           }

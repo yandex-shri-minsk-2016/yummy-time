@@ -6,7 +6,7 @@ export default Ember.Component.extend({
       this.attrs.submit({
         place: this.get('place'),
         manager: this.get('manager'),
-        orderTime: this.get('orderTime'),
+        time: this.get('time'),
         amount: this.get('amount')
       });
     }
