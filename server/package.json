@@ -10,10 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
+    "json-api": "^2.15.7",
     "mongo": "^0.1.0",
     "mongoose": "^4.4.12"
-  },
-  "devDependencies": {
-    "json-api": "^2.15.7"
   }
 }
