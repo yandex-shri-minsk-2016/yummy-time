@@ -1,7 +1,8 @@
-[![Stories in Ready](https://badge.waffle.io/yandex-shri-minsk-2016/yummy-time.png?label=ready&title=Ready)](https://waffle.io/yandex-shri-minsk-2016/yummy-time)
 # yummy-time
 
-## Client installation
+[![Stories in Ready](https://badge.waffle.io/yandex-shri-minsk-2016/yummy-time.png?label=ready&title=Ready)](https://waffle.io/yandex-shri-minsk-2016/yummy-time)
+
+## Client development
 
 - Clone the repository:
 
@@ -9,29 +10,40 @@
   git clone git@github.com:yandex-shri-minsk-2016/yummy-time.git
   ```
 
-- Install node and bower dependencies:
+- Go to client directory:
 
   ```sh
   cd client
-  npm install
-  ```
-- Running / Development
-
-  ```
-  `ember server` or `ember s` or `ember serve`
-  Visit app at [http://localhost:4200](http://localhost:4200).
   ```
 
-- Running Tests
+- Install node and bower dependencies:
 
-  ```
-  `ember test`
-  `ember test --server`
+  ```sh
+  npm install && bower install
   ```
 
-- Building
+- Launch the application with Ember server:
 
+  ```sh
+  ember server
   ```
- `ember build` (development)
- `ember build --environment production` (production)
+
+- Open the application in your browser:
+
+  ```sh
+  open http://localhost:4200
+  ```
+
+- Run the app’s test suite:
+
+  ```sh
+  ember test
+  ember test --server
+  ```
+
+- Build the application for different environments:
+
+  ```sh
+  ember build
+  ember build --environment production
   ```
