@@ -44,6 +44,6 @@
 - Build the application for different environments:
 
   ```sh
-  npm build
+  npm run build
   npm run build -- --environment production
   ```
