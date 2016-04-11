@@ -38,10 +38,12 @@
 
   ```sh
   npm test
+  npm test -- --server
   ```
 
-- Build the application:
+- Build the application for different environments:
 
   ```sh
   npm build
+  npm run build -- --environment production
   ```
