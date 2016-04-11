@@ -19,13 +19,13 @@
 - Install node and bower dependencies:
 
   ```sh
-  npm install && bower install
+  npm install
   ```
 
 - Launch the application with Ember server:
 
   ```sh
-  ember server
+  npm start
   ```
 
 - Open the application in your browser:
@@ -37,13 +37,11 @@
 - Run the app’s test suite:
 
   ```sh
-  ember test
-  ember test --server
+  npm test
   ```
 
-- Build the application for different environments:
+- Build the application:
 
   ```sh
-  ember build
-  ember build --environment production
+  npm build
   ```
