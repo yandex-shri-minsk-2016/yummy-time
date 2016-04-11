@@ -1,15 +1,31 @@
 'use strict';
-var express  = require('express');
-var mongoose = require('mongoose');
-var app = express();
 
-// Start by loading up all our mongoose models and connecting.
-mongoose.connect('mongodb://localhost/example');
+const express  = require('express');
+const mongoose = require('mongoose');
 
-app.get('/', function (req, res) {
-  res.send('Hi world');
-})
+const config = require('./config/config');
+const app = express();
 
-// And we're done! Start 'er up!
-console.log('Starting up! Visit 127.0.0.1:3000 to see the docs.');
-app.listen(3000);
+function connect(options) {
+  return mongoose.connect(config.db, options).connection;
+}
+
+function listen() {
+  app.listen(config.port);
+  console.log('Express app started on http://127.0.0.1:' + config.port);
+}
+
+connect()
+  .on('error', console.log)
+  .on('disconnected', connect)
+  .once('open', listen);
+
+
+/**
+ * Expose application
+ */
+
+module.exports = app;
+
+// Bootstrap routes
+require('./config/routes')(app);
