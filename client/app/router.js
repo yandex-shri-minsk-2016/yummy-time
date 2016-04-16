@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('orders', function() {});
   this.route('new-order', {path: '/orders/new'});
   this.route('join-order', {path: '/orders/join'});
+  this.route('register');
 });
 
 export default Router;
