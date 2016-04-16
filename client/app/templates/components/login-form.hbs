@@ -1,0 +1,19 @@
+<form class="form login-form">
+  <h2 class="form__title">Авторизация</h2>
+
+  <div class="form__row">
+    <label class="form__label">
+      <span class="form__label-text">* Почта</span>
+      {{input value=email class="form__field"}}
+      </label>
+  </div>
+
+  <div class="form__row">
+    <label class="form__label">
+      <span class="form__label-text">* Пароль</span>
+      {{input value=password class="form__field"}}
+      </label>
+  </div>
+
+  <button {{action "submit"}} type="submit" class="button button_submit">Войти</button>
+</form>
