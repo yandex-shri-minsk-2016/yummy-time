@@ -1,0 +1,28 @@
+{
+  "data": {
+    "type": "order",
+    "attributes": {
+      "location": "Место доставки заказа",
+      "time": "15:00",
+      "active": true,
+    },
+
+    "relationships": {
+      "food-vendor": {
+        "data": {"type": "food-vendor", "id": 1}
+      },
+
+      "manager": {
+        "data": {"type": "account", "id": 42}
+      },
+
+      "portions": {
+        "data": [
+          {"type": "portion", "id": 1},
+          {"type": "portion", "id": 2},
+        ]
+      },
+    }
+  }
+}
+
