@@ -1,0 +1,9 @@
+{
+  "data": {
+    "type": "account",
+    "attributes": {
+      "name": "Виталий",
+      "phone": "+375 29 335-86-79"
+    }
+  }
+}

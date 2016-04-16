@@ -1,0 +1,20 @@
+{
+  "data": {
+    "type": "portion",
+    "attributes": {
+      "text": "комментарии к покупке",
+      "cost": 10000,
+      "paid": false
+    },
+
+    "relationships": {
+      "order": {
+        "data": {"type": "order", "id": 42}
+      },
+
+      "owner": {
+        "data": {"type": "account", "id": 1}
+      },
+    }
+  }
+}
