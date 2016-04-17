@@ -21,10 +21,10 @@ exports.token = function(req, res) {
         res.json({ message: 'Enjoy your token', token: token });
 
       } else {
-        res.json({ message: 'Invalid password' });
+        res.status(400).json({ message: 'Invalid password' });
       }
     } else {
-      res.json({ message: 'No such account' });
+      res.status(400).json({ message: 'No such account' });
     }
   })
 };
