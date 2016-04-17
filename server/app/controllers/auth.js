@@ -2,6 +2,7 @@
 
 const jwt = require('jsonwebtoken');
 const Account = require('../models/account');
+const config = require('../../config/config');
 
 exports.token = function(req, res) {
   const options = {
@@ -16,7 +17,7 @@ exports.token = function(req, res) {
 
     if (account) {
       if (account.authenticate(req.body.password)) {
-        let token = jwt.sign(account.id, 'secret');
+        let token = jwt.sign(account.id, config.secret);
         res.json({ message: 'Enjoy your token', token: token });
 
       } else {
