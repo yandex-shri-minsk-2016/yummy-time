@@ -9,6 +9,7 @@ export default Ember.Controller.extend({
       this.get('session').authenticate(authenticator, credentials)
         .then((res) => {
           this.set('errorMessage', null);
+          this.transitionToRoute('orders');
         })
         .catch((reason) => {
           this.set('errorMessage', reason.message || reason);
