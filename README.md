@@ -10,35 +10,34 @@
   git clone git@github.com:yandex-shri-minsk-2016/yummy-time.git
   ```
 
-- Go to client directory:
-
-  ```sh
-  cd client
-  ```
-
 - Install node and bower dependencies:
 
   ```sh
   npm install
   ```
 
-- Launch the application with Ember server:
+- Run mongod:
 
   ```sh
-  npm start
+  mongod --dbpath path/to/your/mongo/dbs
+  ```
+
+- Launch server application:
+
+  ```sh
+  npm run server
+  ```
+
+- Launch client application:
+
+  ```sh
+  npm run client
   ```
 
 - Open the application in your browser:
 
   ```sh
   open http://localhost:4200
-  ```
-
-- Run the app’s test suite:
-
-  ```sh
-  npm test
-  npm test -- --server
   ```
 
 - Build the application for different environments:
