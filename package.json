@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yandex-shri-minsk-2016/yummy-time#readme",
   "devDependencies": {
-    "git-hooks": "^1.0.2"
+    "git-hooks": "^1.0.2",
+    "jscs": "^3.0.2"
   }
 }
