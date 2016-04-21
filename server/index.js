@@ -2,6 +2,7 @@
 
 const express  = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const config = require('./config/config');
 const app = express();
@@ -26,6 +27,10 @@ connect()
  */
 
 module.exports = app;
+
+// Configure application
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Bootstrap routes
 require('./config/routes')(app);
