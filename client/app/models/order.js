@@ -5,5 +5,6 @@ export default DS.Model.extend({
   location: DS.attr('string'),
   manager: DS.attr('string'),
   time: DS.attr('string'),
-  portions: DS.hasMany('portion')
+  portions: DS.hasMany('portion'),
+  active: DS.attr('boolean')
 });
