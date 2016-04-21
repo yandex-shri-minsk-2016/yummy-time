@@ -1,7 +1,9 @@
 <div class="wrapper">
   <nav>
     {{#if session.isAuthenticated}}
-      <a {{action 'invalidateSession'}}>Logout</a>
+      <p>Hello, {{session.account.name}}!
+        <a {{action 'invalidateSession'}}>Logout</a>
+      </p>
     {{else}}
       {{#link-to 'login'}}Login{{/link-to}}
     {{/if}}
