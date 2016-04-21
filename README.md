@@ -2,7 +2,7 @@
 
 [![Stories in Ready](https://badge.waffle.io/yandex-shri-minsk-2016/yummy-time.png?label=ready&title=Ready)](https://waffle.io/yandex-shri-minsk-2016/yummy-time)
 
-## Client development
+## Getting started
 
 - Clone the repository:
 
@@ -13,7 +13,7 @@
 - Install node and bower dependencies:
 
   ```sh
-  npm install
+  npm run install-all
   ```
 
 - Run mongod:
@@ -43,6 +43,6 @@
 - Build the application for different environments:
 
   ```sh
-  npm run build
-  npm run build -- --environment production
+  npm run build       # => development
+  npm run build-prod  # => production
   ```
