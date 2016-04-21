@@ -2,7 +2,7 @@
 
 [![Stories in Ready](https://badge.waffle.io/yandex-shri-minsk-2016/yummy-time.png?label=ready&title=Ready)](https://waffle.io/yandex-shri-minsk-2016/yummy-time)
 
-## Client development
+## Getting started
 
 - Clone the repository:
 
@@ -10,22 +10,28 @@
   git clone git@github.com:yandex-shri-minsk-2016/yummy-time.git
   ```
 
-- Go to client directory:
-
-  ```sh
-  cd client
-  ```
-
 - Install node and bower dependencies:
 
   ```sh
-  npm install
+  npm run install-all
   ```
 
-- Launch the application with Ember server:
+- Run mongod:
 
   ```sh
-  npm start
+  mongod --dbpath path/to/your/mongo/dbs
+  ```
+
+- Launch server application:
+
+  ```sh
+  npm run server
+  ```
+
+- Launch client application:
+
+  ```sh
+  npm run client
   ```
 
 - Open the application in your browser:
@@ -34,16 +40,9 @@
   open http://localhost:4200
   ```
 
-- Run the app’s test suite:
-
-  ```sh
-  npm test
-  npm test -- --server
-  ```
-
 - Build the application for different environments:
 
   ```sh
-  npm run build
-  npm run build -- --environment production
+  npm run build       # => development
+  npm run build-prod  # => production
   ```
