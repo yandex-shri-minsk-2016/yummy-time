@@ -11,7 +11,7 @@ const auth = require('../app/controllers/auth');
 module.exports = function(app) {
   app.get('/', main.index);
   app.post('/auth/token', auth.token);
-  app.get('/:type(orders|accounts|portions)', api);
-  app.get('/:type(orders|accounts|portions)/:id', api);
-  app.post('/:type(orders|accounts|portions)', api);
+  app.get('/:type(orders|accounts|portions|vendors)', api);
+  app.get('/:type(orders|accounts|portions|vendors)/:id', api);
+  app.post('/:type(orders|accounts|portions|vendors)', api);
 }
