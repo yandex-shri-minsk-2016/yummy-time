@@ -13,7 +13,7 @@
 - Install node and bower dependencies:
 
   ```sh
-  npm run install-all
+  npm install
   ```
 
 - Run mongod:
