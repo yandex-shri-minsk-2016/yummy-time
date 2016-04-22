@@ -46,9 +46,3 @@
   npm run build       # => development
   npm run build-prod  # => production
   ```
-
-- Run eslint:
-
-  ```sh
-  npm run eslint
-  ```
