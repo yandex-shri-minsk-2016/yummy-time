@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('new-portion-order', {path: '/orders/:order_id/portions/new'});
   this.route('register');
   this.route('login');
+  this.route('food-vendors', { path: '/vendors' });
 });
 
 export default Router;

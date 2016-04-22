@@ -1,0 +1,8 @@
+<ul class="food-vendor-list">
+  {{#each model as |vendor|}}
+    <li class="food-vendor-list__item">
+      {{vendor.title}}
+      <a href="{{vendor.url}}" _target="blank">{{vendor.url}}</a>
+    </li>
+  {{/each}}
+</ul>
