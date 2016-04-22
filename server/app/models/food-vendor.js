@@ -9,4 +9,16 @@ const foodVendorSchema = new Schema({
   minOrderCost: { type: Number }
 });
 
+foodVendorSchema.path('title').validate(function(title, callback) {
+  const Vendor = mongoose.model('FoodVendor');
+
+  if (this.isNew || this.isModified('title')) {
+    Vendor.find({ title }).exec(function(err, vendors) {
+      callback(!err && vendors.length === 0)
+    });
+  } else {
+    callback(true);
+  }
+}, 'Food vendor already exists');
+
 module.exports = mongoose.model('FoodVendor', foodVendorSchema);
