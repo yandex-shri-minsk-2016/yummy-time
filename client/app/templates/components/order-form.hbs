@@ -11,6 +11,11 @@
                         select-item='setVendor'
                         placeholder='Выберите заведение' }}
     </label>
+
+    {{#if vendor}}
+      <a class="order-form__vendor-link" href="{{vendor.url}}">{{vendor.url}}</a>
+      <div class="order-form__vendor-min-cost">{{vendor.minOrderCost}}</div>
+    {{/if}}
   </div>
 
   <div class="form__row">
