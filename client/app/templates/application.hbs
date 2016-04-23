@@ -1,17 +1,40 @@
 <div class="wrapper">
-  <nav>
-    {{#if session.isAuthenticated}}
-      <p>Hello, {{session.account.name}}!
-        <a {{action 'invalidateSession'}}>Logout</a>
-      </p>
-    {{else}}
-      {{#link-to 'login'}}Login{{/link-to}}
-    {{/if}}
-  </nav>
+  <aside class="s-sidebar">
+      <ul class="m-site">
+          <li class="m-site__item">
+              <a href="" class="m-site__link">Home</a>
+          </li>
+        <li class="m-site__item">
+            <a href="#" class="btn-logo">Account</a>
+          {{#if session.isAuthenticated}}
+              <p>Hello, {{session.account.name}}!
+                  <a {{action 'invalidateSession'}}>Logout</a>
+              </p>
+          {{else}}
+            {{#link-to 'login'}}Login{{/link-to}}
+          {{/if}}
+        </li>
+          <li class="m-site__item">
+              <a href="" class="m-site__link">Orders</a>
+          </li>
+      </ul>
+  </aside>
 
-  <section>
-    <div class="container">
-      {{outlet}}
-    </div>
-  </section>
+  <div class="inner">
+      <header class="s-header">
+          <button class="btn-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+          <span class="s-header__title">Yummy Time</span>
+          <a href="#" class="btn-logo">Account</a>
+      </header>
+
+      <section class="s-content">
+          <div class="container">
+            {{outlet}}
+          </div>
+      </section>
+  </div>
 </div>
