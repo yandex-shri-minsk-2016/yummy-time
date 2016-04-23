@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper {{openClass}}">
   <aside class="s-sidebar">
     <ul class="m-site" role="navigation" aria-label="main site menu">
       <li class="m-site__item">
@@ -34,21 +34,21 @@
     </ul>
   </aside>
 
-  <div class="wrapper__content {{openClass}}">
-    <a href="/" class="i-logo">Yummy Time</a>
-    <header class="s-header">
+  <a href="/" class="i-logo">Yummy Time</a>
+  <header class="s-header">
       <button class="btn-menu" aria-label="toggle site menu" {{action "slide"}}>
-        <span></span>
-        <span></span>
-        <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
       </button>
       <a href="#" class="btn-account">
-        <svg class="svg-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 513.32 513.32">
-          <path d="M346.49 316.547c49.194-29.944 81.276-83.414 81.276-145.44C427.766 76.997 350.768 0 256.66 0S85.553 76.998 85.553 171.107c0 62.026 32.082 115.497 81.275 145.44C81.275 348.63 17.11 423.49 0 513.32h42.777c21.388-98.386 109.08-171.107 213.883-171.107s192.495 72.72 213.883 171.107h42.777c-17.11-91.97-81.275-166.83-166.83-196.773zm-218.16-145.44c0-70.58 57.75-128.33 128.33-128.33s128.33 57.75 128.33 128.33-57.75 128.33-128.33 128.33-128.33-57.75-128.33-128.33z"/>
-        </svg>
+          <svg class="svg-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 513.32 513.32">
+              <path d="M346.49 316.547c49.194-29.944 81.276-83.414 81.276-145.44C427.766 76.997 350.768 0 256.66 0S85.553 76.998 85.553 171.107c0 62.026 32.082 115.497 81.275 145.44C81.275 348.63 17.11 423.49 0 513.32h42.777c21.388-98.386 109.08-171.107 213.883-171.107s192.495 72.72 213.883 171.107h42.777c-17.11-91.97-81.275-166.83-166.83-196.773zm-218.16-145.44c0-70.58 57.75-128.33 128.33-128.33s128.33 57.75 128.33 128.33-57.75 128.33-128.33 128.33-128.33-57.75-128.33-128.33z"/>
+          </svg>
       </a>
-    </header>
+  </header>
 
+  <div class="wrapper__content">
     <section class="s-content">
       <div class="container">
         {{outlet}}
