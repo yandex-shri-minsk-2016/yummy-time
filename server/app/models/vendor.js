@@ -13,9 +13,9 @@ vendorSchema.path('title').validate(function(title, callback) {
   const Vendor = mongoose.model('Vendor');
 
   if (this.isNew || this.isModified('title')) {
-    Vendor.find({ title }).exec(function(err, vendors) {
+    Vendor.find({ title }).exec((err, vendors) =>
       callback(!err && vendors.length === 0)
-    });
+    );
   } else {
     callback(true);
   }
