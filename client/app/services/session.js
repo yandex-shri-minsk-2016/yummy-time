@@ -10,7 +10,7 @@ export default ESASession.extend({
       const payload = jwt.getTokenData(this.get('session.authenticated.token'));
 
       this.get('store').find('account', payload).then((account) => {
-        this.set('account', account)
+        this.set('account', account);
       });
     } else {
       this.set('account', null);

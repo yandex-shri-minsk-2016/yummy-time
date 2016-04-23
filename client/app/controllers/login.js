@@ -5,15 +5,15 @@ export default Ember.Controller.extend({
 
   actions: {
     authenticate(credentials) {
-      let authenticator = 'authenticator:jwt';
+      const authenticator = 'authenticator:jwt';
       this.get('session').authenticate(authenticator, credentials)
-        .then((res) => {
+        .then(() => {
           this.set('errorMessage', null);
           this.transitionToRoute('orders');
         })
         .catch((reason) => {
           this.set('errorMessage', reason.message || reason);
-        })
+        });
     }
   }
 });
