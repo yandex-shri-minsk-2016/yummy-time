@@ -1,1 +1,4 @@
-{{login-form model=model.account}}
+{{login-form submit=(action 'authenticate')}}
+{{#if errorMessage}}
+  <p>{{errorMessage}}</p>
+{{/if}}

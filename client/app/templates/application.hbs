@@ -1,4 +1,14 @@
 <div class="wrapper">
+  <nav>
+    {{#if session.isAuthenticated}}
+      <p>Hello, {{session.account.name}}!
+        <a {{action 'invalidateSession'}}>Logout</a>
+      </p>
+    {{else}}
+      {{#link-to 'login'}}Login{{/link-to}}
+    {{/if}}
+  </nav>
+
   <section>
     <div class="container">
       {{outlet}}
