@@ -12,7 +12,7 @@ module.exports = new JwtStrategy({
   },
   function(payload, done) {
     const options = {
-      criteria: { 'id': payload.sub }
+      criteria: { _id: payload }
     };
 
     Account.load(options, function(err, account) {
