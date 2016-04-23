@@ -9,85 +9,91 @@
   font-weight 700
   min-width 240px
   padding 0 15px
-  box-shadow 1px 1px 5px 0 rgba(#000,.5)
+  box-shadow 1px 1px 5px 0 rgba($b,.5)
   transition box-shadow .2s ease-out, background .2s ease-out
   text-transform uppercase
 
   &:hover
-    box-shadow 1px 1px 8px 0 rgba(#000,.5)
+    box-shadow 1px 1px 8px 0 rgba($b,.5)
 
   &_submit
-    background #fbbe00
-    color #fff
+    background $o
+    color $w
     text-decoration none
 
     &:hover
-      background rgba(#fbbe00,.95)
+      background rgba($o,.95)
 
 .btn-menu
-  position: relative
-  z-index: 1
-  padding: 0 10px
-  width: 40px
-  height: 40px
-  cursor: pointer
+  position relative
+  z-index 1
+  padding 0 10px
+  width 40px
+  height 40px
+  cursor pointer
+
   span
-    width: 100%
-    height: 2px
-    display: block
-    background: #fff
+    width 100%
+    height 2px
+    display block
+    background $w
 
     &:not(:first-child)
-      margin-top: 4px
+      margin-top 4px
 
 .btn-logo
-  position: relative
-  z-index: 1
+  position relative
+  z-index 1
 
 .btn-account
-  width: 40px
-  height: 40px
-  text-decoration: none
-  text-align: center
-  display: block
+  width 40px
+  height 40px
+  text-decoration none
+  text-align center
+  display block
+
   &:before
     content ''
-    width: 0
-    height: 100%
-    display: inline-block
-    vertical-align: middle
+    width 0
+    height 100%
+    display inline-block
+    vertical-align middle
+
   .svg-user
-    width: 16px
-    height: 16px
-    fill #fff
-    margin-bottom: 0
-    vertical-align: middle
-    display: inline-block
+    width 16px
+    height 16px
+    fill $w
+    margin-bottom 0
+    vertical-align middle
+    display inline-block
 
 .btn-new-order
-  width: 50px
-  height: 50px
-  border-radius: 50%
+  width 50px
+  height 50px
+  border-radius 50%
   box-shadow 1px 1px 3px 0 rgba(#333,0.5)
-  position: fixed
-  right: 10px
-  bottom: 10px
+  position fixed
+  right 10px
+  bottom 10px
   background #fbbe00
-  display: block
+  display block
+
   &:before
   &:after
-    left: 0
-    top: 0
-    bottom: 0
-    right: 0
+    left 0
+    top 0
+    bottom 0
+    right 0
     margin auto
-    background #fff
+    background $w
     content ''
-    position: absolute
-    display: block
+    position absolute
+    display block
+
   &:before
-    width: 28px
-    height: 4px
+    width 28px
+    height 4px
+
   &:after
-    height: 28px
-    width: 4px
+    height 28px
+    width 4px

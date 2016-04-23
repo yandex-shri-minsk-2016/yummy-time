@@ -1,17 +1,17 @@
 <form class="form login-form">
-    <div class="form__wrapper">
-        <div class="form__row">
-            <label class="form__label">
-              {{input value=email class="form__field" placeholder="e-mail"}}
-            </label>
-        </div>
-
-        <div class="form__row">
-            <label class="form__label">
-              {{input value=password class="form__field" placeholder="password"}}
-            </label>
-        </div>
+  <div class="form__wrapper">
+    <div class="form__row">
+      <label class="form__label">
+        {{input value=identification class="form__field" placeholder="e-mail"}}
+      </label>
     </div>
 
-    <button {{action "submit"}} type="submit" class="button button_submit">Войти</button>
+    <div class="form__row">
+      <label class="form__label">
+        {{input value=password class="form__field" placeholder="password"}}
+      </label>
+    </div>
+  </div>
+
+  <button {{action "submit"}} type="submit" class="button button_submit">Войти</button>
 </form>

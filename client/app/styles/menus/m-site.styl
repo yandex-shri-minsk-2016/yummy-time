@@ -1,29 +1,32 @@
 .m-site
   &__link
-    font-size: 1.2rem
-    text-align: center
-    text-decoration: none
-    display: block
+    font-size 1.2rem
+    text-align center
+    text-decoration none
+    display block
     padding 20px 10px
-    color #333
+    color $gr
+
   &__item
     &._desktop-item
-      display: none
+      display none
+
     &:not(:first-child)
-      position: relative
+      position relative
+
       &:before
         margin 0 auto
-        position: absolute
-        left: 0
-        right: 0
+        position absolute
+        left 0
+        right 0
         width calc(100% - 10px)
-        height: 1px
-        background #dadada
-        top: 0
+        height 1px
+        background $gr1
+        top 0
         content ''
 
-@media only screen and (min-width: 768px)
+@media $w768
   .m-site
     &__item
       &._desktop-item
-        display: block
+        display block
