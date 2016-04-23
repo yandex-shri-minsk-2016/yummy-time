@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('register');
   this.route('login');
   this.route('vendors', { path: '/vendors' });
+  this.route('checkout');
 });
 
 export default Router;
