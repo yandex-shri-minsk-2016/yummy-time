@@ -1,13 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  vendor: null,
+
   actions: {
+    setVendor(vendor) {
+      this.set('vendor', vendor);
+    },
+
     submit() {
-      this.attrs.submit({
-        location: this.get('location'),
-        manager: this.get('manager'),
-        time: this.get('time')
-      });
+      this.attrs.submit(this.getProperties('location', 'manager', 'time'));
     }
   }
 });

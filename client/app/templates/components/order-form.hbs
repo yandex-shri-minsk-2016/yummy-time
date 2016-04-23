@@ -5,6 +5,17 @@
   <div class="form__row">
     <label class="form__label">
       <span class="form__label-text">Заведение</span>
+      {{ember-selectize content=vendors
+                        optionValuePath='content.id'
+                        optionLabelPath='content.title'
+                        select-item='setVendor'
+                        placeholder='Выберите заведение' }}
+    </label>
+  </div>
+
+  <div class="form__row">
+    <label class="form__label">
+      <span class="form__label-text">Место доставки</span>
       {{input value=location class="form__field"}}
     </label>
   </div>
