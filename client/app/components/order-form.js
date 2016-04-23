@@ -9,7 +9,10 @@ export default Ember.Component.extend({
     },
 
     submit() {
-      this.attrs.submit(this.getProperties('location', 'manager', 'time'));
+      this.attrs.submit(
+        this.get('vendor'),
+        this.getProperties('location', 'manager', 'time')
+      );
     }
   }
 });
