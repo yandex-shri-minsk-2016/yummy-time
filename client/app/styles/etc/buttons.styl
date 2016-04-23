@@ -9,20 +9,20 @@
   font-weight 700
   min-width 240px
   padding 0 15px
-  box-shadow 1px 1px 5px 0 rgba($b,.5)
+  box-shadow 1px 1px 5px 0 rgba($bs-dark,.5)
   transition box-shadow .2s ease-out, background .2s ease-out
   text-transform uppercase
 
   &:hover
-    box-shadow 1px 1px 8px 0 rgba($b,.5)
+    box-shadow 1px 1px 8px 0 rgba($bs-dark,.5)
 
   &_submit
-    background $o
-    color $w
+    background $bg-action
+    color $c-light
     text-decoration none
 
     &:hover
-      background rgba($o,.95)
+      background rgba($bg-action,.95)
 
 .btn-menu
   position relative
@@ -36,7 +36,7 @@
     width 100%
     height 2px
     display block
-    background $w
+    background $bg-light
 
     &:not(:first-child)
       margin-top 4px
@@ -62,7 +62,7 @@
   .svg-user
     width 16px
     height 16px
-    fill $w
+    fill $bg-light
     margin-bottom 0
     vertical-align middle
     display inline-block
@@ -71,11 +71,11 @@
   width 50px
   height 50px
   border-radius 50%
-  box-shadow 1px 1px 3px 0 rgba(#333,0.5)
+  box-shadow 1px 1px 3px 0 rgba($bs-dark,0.33)
   position fixed
   right 10px
   bottom 10px
-  background #fbbe00
+  background $bg-action
   display block
 
   &:before
@@ -85,7 +85,7 @@
     bottom 0
     right 0
     margin auto
-    background $w
+    background $c-light
     content ''
     position absolute
     display block
