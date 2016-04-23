@@ -1,6 +1,6 @@
 {{#link-to 'new-portion-order' order class="order-preview"}}
   <div class="order-preview__row">
-    <div class="order-preview__place">{{order.location}}</div>
+    <div class="order-preview__place">{{order.vendor.title}}/{{order.location}}</div>
     <time class="order-preview__time">{{order.time}}</time>
   </div>
   <div class="order-preview__row">

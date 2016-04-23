@@ -7,6 +7,7 @@ const orderSchema = new Schema({
   time: { type: String, required: true },
   location: { type: String, required: true },
   manager: { type: String, required: true },
+  vendor: { ref: 'Vendor', type: Schema.ObjectId },
   portions: [{ ref: 'Portion', type: Schema.ObjectId }]
 });
 
