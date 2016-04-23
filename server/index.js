@@ -3,6 +3,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const config = require('./config/config');
 const app = express();
@@ -33,6 +34,7 @@ module.exports = app;
 // Configure application
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+require('./config/passport')(app, passport);
 
 // Bootstrap routes
 require('./config/routes')(app);

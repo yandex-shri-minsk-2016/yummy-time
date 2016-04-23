@@ -1,5 +1,6 @@
 'use strict';
 
+const passport = require('passport');
 const main = require('../app/controllers/main');
 const api = require('../app/controllers/api');
 const auth = require('../app/controllers/auth');
@@ -11,6 +12,9 @@ const auth = require('../app/controllers/auth');
 module.exports = function applyRoutes(app) {
   app.get('/', main.index);
   app.post('/auth/token', auth.token);
+  app.get('/me', passport.authenticate('jwt'), function(req, res) {
+    res.send(req.user);
+  });
   app.get('/:type(orders|accounts|portions|vendors)', api);
   app.get('/:type(orders|accounts|portions|vendors)/:id', api);
   app.post('/:type(orders|accounts|portions|vendors)', api);
