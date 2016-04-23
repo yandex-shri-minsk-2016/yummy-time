@@ -1,0 +1,9 @@
+<ul class="vendors">
+  {{#each model as |vendor|}}
+    <li class="vendors__item">
+      {{vendor.title}}
+      <a href="{{vendor.url}}" _target="blank"
+         class="vendors__link">{{vendor.url}}</a>
+    </li>
+  {{/each}}
+</ul>
