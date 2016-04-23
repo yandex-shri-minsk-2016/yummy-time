@@ -28,3 +28,42 @@
     border 1px solid #dadada
     padding 5px 10px
     resize none
+
+  &__checkbox
+    display: none
+
+    &:checked + .form__checkbox-text:after
+      position absolute
+      top 0
+      bottom 2px
+      margin auto 0
+      left 3px
+      width 6px
+      height 3px
+      border-left 1px solid #000
+      border-bottom 1px solid #000
+      transform-origin center
+      transform rotate(-45deg)
+      content ''
+
+  &__checkbox-label
+    font-weight 400
+    cursor pointer
+
+  &__checkbox-text
+    padding-left 20px
+    font-size 14px
+    position relative
+    display block
+
+    &:before
+      position absolute
+      left 0
+      top 0
+      bottom 0
+      margin auto 0
+      width 12px
+      height 12px
+      border 1px solid #000
+      background #fff
+      content ''
