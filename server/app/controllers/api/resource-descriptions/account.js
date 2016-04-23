@@ -2,12 +2,12 @@
 
 module.exports = {
   urlTemplates: {
-    'self': '/accounts/{id}'
+    self: '/accounts/{id}'
   },
 
-  beforeRender(resource, req, res) {
+  beforeRender(resource) {
     resource.removeAttr('email');
     resource.removeAttr('hashed_password');
     return resource;
   }
-}
+};

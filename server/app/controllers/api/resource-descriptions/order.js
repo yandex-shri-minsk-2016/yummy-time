@@ -2,6 +2,6 @@
 
 module.exports = {
   urlTemplates: {
-    'self': '/orders/{id}'
+    self: '/orders/{id}'
   }
-}
+};

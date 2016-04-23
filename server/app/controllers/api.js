@@ -16,7 +16,7 @@ const registry = new API.ResourceTypeRegistry({
   vendors: require('./api/resource-descriptions/vendor')
 }, { dbAdapter: adapter });
 
-var controller = new API.controllers.API(registry);
-var api = new API.httpStrategies.Express(controller);
+const controller = new API.controllers.API(registry);
+const api = new API.httpStrategies.Express(controller);
 
 module.exports = api.apiRequest.bind(api);

@@ -2,12 +2,13 @@
 
 const bcrypt = require('bcrypt-nodejs');
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const accountSchema = mongoose.Schema({
+const accountSchema = new Schema({
   email: { type: String, required: true },
   hashed_password: { type: String, required: true },
   name: { type: String, default: '' },
-  phone: { type: String, default: '' },
+  phone: { type: String, default: '' }
 });
 
 accountSchema
@@ -24,9 +25,8 @@ accountSchema.path('email').validate(function(email, callback) {
   const Account = mongoose.model('Account');
 
   if (this.isNew || this.isModified('email')) {
-    Account.find({email: email}).exec(function(err, accounts) {
-      callback(!err && accounts.length === 0)
-    });
+    Account.find({ email })
+      .exec((err, accounts) => callback(!err && accounts.length === 0));
   } else {
     callback(true);
   }
@@ -77,9 +77,9 @@ accountSchema.statics = {
    * @api private
    */
   load(options, callback) {
-    options.select = options.select || 'name';
+    const select = options.select || 'name';
     return this.findOne(options.criteria)
-      .select(options.select)
+      .select(select)
       .exec(callback);
   }
 };

@@ -1,9 +1,9 @@
 'use strict';
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var orderItem = new Schema({
+const orderItem = new Schema({
   name: {
     type: String,
     required: true
@@ -25,3 +25,5 @@ var orderItem = new Schema({
     required: true
   }
 });
+
+module.exports = orderItem;

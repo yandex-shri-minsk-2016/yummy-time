@@ -1,9 +1,9 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  var ENV = {
+  const ENV = {
     modulePrefix: 'client',
-    environment: environment,
+    environment,
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -25,6 +25,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    // eslint-disable-next-line no-console
+    console.log('dev');
   }
 
   if (environment === 'test') {
@@ -40,7 +43,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    // eslint-disable-next-line no-console
+    console.log('prod');
   }
 
   return ENV;
