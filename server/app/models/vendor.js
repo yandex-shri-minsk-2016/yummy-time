@@ -3,14 +3,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const foodVendorSchema = new Schema({
+const vendorSchema = new Schema({
   title: { type: String, required: true },
   url: { type: String, required: true },
   minOrderCost: { type: Number }
 });
 
-foodVendorSchema.path('title').validate(function(title, callback) {
-  const Vendor = mongoose.model('FoodVendor');
+vendorSchema.path('title').validate(function(title, callback) {
+  const Vendor = mongoose.model('Vendor');
 
   if (this.isNew || this.isModified('title')) {
     Vendor.find({ title }).exec(function(err, vendors) {
@@ -21,4 +21,4 @@ foodVendorSchema.path('title').validate(function(title, callback) {
   }
 }, 'Food vendor already exists');
 
-module.exports = mongoose.model('FoodVendor', foodVendorSchema);
+module.exports = mongoose.model('Vendor', vendorSchema);

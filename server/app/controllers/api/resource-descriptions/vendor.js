@@ -2,6 +2,6 @@
 
 module.exports = {
   urlTemplates: {
-    self: '/food-vendors/{id}'
+    self: '/vendors/{id}'
   }
 }
