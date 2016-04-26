@@ -1,0 +1,43 @@
+<form class="f-default f-order">
+
+  <h2 class="f-default__title">Добавить заказ</h2>
+
+  <div class="f-default__wrapper">
+
+    <div class="f-default__row">
+        <label class="f-default__label">
+          {{ember-selectize content=vendors
+          optionValuePath='content.id'
+          optionLabelPath='content.title'
+          select-item='setVendor'
+          placeholder='Выберите заведение' }}
+        </label>
+
+      {{#if vendor}}
+          <a class="f-order__vendor-link" href="{{vendor.url}}">{{vendor.url}}</a>
+          <div class="f-order__vendor-min-cost">{{vendor.minOrderCost}}</div>
+      {{/if}}
+    </div>
+
+    <div class="f-default__row">
+        <label class="f-default__label">
+          {{input value=location class="f-default__field" placeholder="Место доставки"}}
+        </label>
+    </div>
+
+    <div class="f-default__row">
+        <label class="f-default__label">
+          {{input value=manager class="f-default__field" placeholder="Ваше имя"}}
+        </label>
+    </div>
+
+    <div class="f-default__row">
+        <label class="f-default__label">
+          {{input value=time class="f-default__field" placeholder="Время заказа"}}
+        </label>
+    </div>
+
+  </div>
+
+  <button {{action "submit"}} type="submit" class="button _submit">Создать</button>
+</form>

@@ -1,0 +1,19 @@
+<form class="f-default f-login">
+  <h2 class="f-default__title">Авторизация</h2>
+
+  <div class="f-default__wrapper">
+    <div class="f-default__row">
+      <label class="f-default__label">
+        {{input value=identification class="f-default__field" placeholder="e-mail"}}
+      </label>
+    </div>
+
+    <div class="f-default__row">
+      <label class="f-default__label">
+        {{input value=password class="f-default__field" placeholder="password"}}
+      </label>
+    </div>
+  </div>
+
+  <button {{action "submit"}} type="submit" class="button _submit">Войти</button>
+</form>
