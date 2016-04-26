@@ -5,6 +5,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model() {
     return Ember.RSVP.hash({
       vendors: this.store.findAll('vendor')
-    })
+    });
   }
 });

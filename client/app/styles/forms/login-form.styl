@@ -1,3 +1,19 @@
 .login-form
-  max-width 480px
+  max-width 420px
   margin 0 auto 20px
+
+  .form__row
+    margin 0
+    position relative
+
+    &:not(:first-child)
+      &:before
+        content ''
+        position absolute
+        top 0
+        left 0
+        width 100%
+        border-top 1px solid rgba($bg-dark,.33)
+
+  .form__field
+    background transparent;

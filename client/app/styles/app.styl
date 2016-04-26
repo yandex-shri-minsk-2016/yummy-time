@@ -1,13 +1,24 @@
-// Mail application stylesheet.
+// Main application stylesheet
 
 // Reset CSS
 @import 'settings/reset'
 
 // default styles
+@import 'settings/variables'
 @import 'settings/default'
 
+// etc
+@import 'etc/buttons'
+@import 'etc/i'
+@import 'etc/helpers'
+@import 'etc/svg'
+
+// Sections
+@import 'sections/s-content'
+@import 'sections/s-header'
+@import 'sections/s-sidebar'
+
 // Blocks
-@import 'blocks/button'
 @import 'blocks/order-list'
 @import 'blocks/tabs-list'
 @import 'blocks/portion-list'
@@ -20,3 +31,6 @@
 @import "forms/register-form"
 @import "forms/login-form"
 @import "forms/checkout-form"
+
+// Menus
+@import "menus/m-site"

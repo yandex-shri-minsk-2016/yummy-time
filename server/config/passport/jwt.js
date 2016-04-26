@@ -7,24 +7,24 @@ const Account = require('../../app/models/account');
 const config = require('../config');
 
 module.exports = new JwtStrategy({
-    jwtFromRequest: ExtractJwt.fromAuthHeader(),
-    secretOrKey: config.secret
-  },
-  function(payload, done) {
-    const options = {
-      criteria: { _id: payload }
-    };
+  jwtFromRequest: ExtractJwt.fromAuthHeader(),
+  secretOrKey: config.secret
+},
+(payload, done) => {
+  const options = {
+    criteria: { _id: payload }
+  };
 
-    Account.load(options, function(err, account) {
-      if (err) {
-        return done(err);
-      }
+  // eslint-disable-next-line consistent-return
+  Account.load(options, (err, account) => {
+    if (err) {
+      return done(err);
+    }
 
-      if (account) {
-        done(null, account);
-      } else {
-        done(null, false);
-      }
-    })
-  }
-);
+    if (account) {
+      done(null, account);
+    } else {
+      done(null, false);
+    }
+  });
+});

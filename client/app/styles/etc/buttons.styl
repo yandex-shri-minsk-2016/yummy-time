@@ -1,0 +1,99 @@
+.button
+  line-height 4rem
+  text-align center
+  width 100%
+  max-width 480px
+  margin 0 auto
+  display block
+  font-size 1.6rem
+  font-weight 700
+  min-width 240px
+  padding 0 15px
+  box-shadow 1px 1px 5px 0 rgba($bs-dark,.5)
+  transition box-shadow .2s ease-out, background .2s ease-out
+  text-transform uppercase
+
+  &:hover
+    box-shadow 1px 1px 8px 0 rgba($bs-dark,.5)
+
+  &_submit
+    background $bg-action
+    color $c-light
+    text-decoration none
+
+    &:hover
+      background rgba($bg-action,.95)
+
+.btn-menu
+  position relative
+  z-index 1
+  padding 0 10px
+  width 40px
+  height 40px
+  cursor pointer
+
+  span
+    width 100%
+    height 2px
+    display block
+    background $bg-light
+
+    &:not(:first-child)
+      margin-top 4px
+
+.btn-logo
+  position relative
+  z-index 1
+
+.btn-account
+  width 40px
+  height 40px
+  text-decoration none
+  text-align center
+  display block
+
+  &:before
+    content ''
+    width 0
+    height 100%
+    display inline-block
+    vertical-align middle
+
+  .svg-user
+    width 16px
+    height 16px
+    fill $bg-light
+    margin-bottom 0
+    vertical-align middle
+    display inline-block
+
+.btn-new-order
+  width 50px
+  height 50px
+  border-radius 50%
+  box-shadow 1px 1px 3px 0 rgba($bs-dark,0.33)
+  position fixed
+  right 10px
+  bottom 10px
+  background $bg-action
+  display block
+
+  &:before
+  &:after
+    left 0
+    top 0
+    bottom 0
+    right 0
+    margin auto
+    background $c-light
+    content ''
+    position absolute
+    display block
+
+  &:before
+    width 28px
+    height 4px
+
+  &:after
+    height 28px
+    width 4px
