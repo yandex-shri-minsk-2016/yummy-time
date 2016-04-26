@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  session: Ember.inject.service(),
   vendor: null,
 
   actions: {
@@ -11,7 +12,8 @@ export default Ember.Component.extend({
     submit() {
       this.attrs.submit(
         this.get('vendor'),
-        this.getProperties('location', 'manager', 'time')
+        this.get('session.account'),
+        this.getProperties('location', 'time')
       );
     }
   }
