@@ -7,7 +7,7 @@ const portionSchema = new Schema({
   text: { type: String, required: true },
   cost: { type: Number, required: true },
   paid: { type: Boolean, required: true, default: false },
-  owner: { type: String, required: true },
+  owner: { ref: 'Account', type: Schema.ObjectId },
   order: { ref: 'Order', type: Schema.ObjectId }
 });
 
