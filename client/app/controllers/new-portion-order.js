@@ -10,6 +10,7 @@ export default Ember.Controller.extend({
         order.get('portions').pushObject(portion);
         order.save();
       });
+      this.transitionToRoute('orders');
     }
   }
 });
