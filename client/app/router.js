@@ -8,7 +8,9 @@ const Router = Ember.Router.extend({
 // eslint-disable-next-line array-callback-return
 Router.map(function() {
   // eslint-disable-next-line prefer-arrow-callback
-  this.route('orders', function() {});
+  this.route('orders', function() {
+    this.route('active');
+  });
   this.route('new-order', { path: '/orders/new' });
   this.route('new-portion-order', { path: '/orders/:order_id/portions/new' });
   this.route('register');
