@@ -1,11 +1,11 @@
 <ul class="tabs-list">
   <li class="tabs-list__item">
-    <button class="tabs-list__button tabs-list__button_active">Все</button>
+    {{#link-to 'orders.index' class="tabs-list__button"}}Все{{/link-to}}
   </li>
   <li class="tabs-list__item">
-    <button class="tabs-list__button">Активные</button>
+    {{#link-to 'orders.active' class="tabs-list__button"}}Активные{{/link-to}}
   </li>
   <li class="tabs-list__item">
-    <button class="tabs-list__button">Неактивные</button>
+    {{#link-to 'orders.inactive' class="tabs-list__button"}}Неактивные{{/link-to}}
   </li>
 </ul>
