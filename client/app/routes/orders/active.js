@@ -7,6 +7,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   renderTemplate(controller, model) {
-    this.render('orders', { model });
+    this.render('orders.index', { model });
   }
 });
