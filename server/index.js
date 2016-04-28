@@ -16,7 +16,7 @@ function listen() {
   app.listen(config.port);
 
   // eslint-disable-next-line no-console
-  console.log(`Express app started on http://127.0.0.1: ${config.port}`);
+  console.log(`Express app started on http://127.0.0.1:${config.port}`);
 }
 
 connect()
