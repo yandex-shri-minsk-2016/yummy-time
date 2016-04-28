@@ -34,6 +34,7 @@ module.exports = app;
 // Configure application
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+require('./config/logger')(app);
 require('./config/passport')(app, passport);
 
 // Bootstrap routes
