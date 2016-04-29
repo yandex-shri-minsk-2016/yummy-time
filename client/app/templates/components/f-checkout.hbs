@@ -28,7 +28,9 @@
       {{/each}}
     </div>
 
-    <button {{action "submit"}} type="submit" class="button _submit">Сформировать</button>
+    <button {{action "toggleActiveState"}} class="button _submit">
+      {{#if model.order.active}}Сформировать{{else}}Расформировать{{/if}}
+    </button>
   </div>
 
   <div class="f-default__row">
