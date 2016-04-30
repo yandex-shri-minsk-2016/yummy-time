@@ -1,13 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  session: Ember.inject.service(),
+
   actions: {
     submit() {
-      this.attrs.submit({
-        text: this.get('text'),
-        cost: this.get('cost'),
-        paid: this.get('paid')
-      });
+      this.attrs.submit(
+        this.get('session.account'),
+        this.getProperties('text', 'cost')
+      );
     }
   }
 });

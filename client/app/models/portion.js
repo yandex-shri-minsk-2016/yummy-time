@@ -4,6 +4,6 @@ export default DS.Model.extend({
   text: DS.attr('string'),
   cost: DS.attr('number'),
   paid: DS.attr('boolean'),
-  owner: DS.attr('string'),
+  owner: DS.belongsTo('account'),
   order: DS.belongsTo('order')
 });
