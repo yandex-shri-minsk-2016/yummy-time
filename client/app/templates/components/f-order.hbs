@@ -14,9 +14,12 @@
         placeholder='Выберите заведение' }}
       </label>
 
+    </div>
+
+    <div class="f-default__row">
       {{#if vendor}}
         <a class="f-order__vendor-link" href="{{vendor.url}}">{{vendor.url}}</a>
-        <div class="f-order__vendor-min-cost">{{vendor.minOrderCost}}</div>
+        <div class="f-order__vendor-min-cost">Минимальный заказ: {{vendor.minOrderCost}}</div>
       {{/if}}
     </div>
 
