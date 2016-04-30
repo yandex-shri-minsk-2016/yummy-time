@@ -14,20 +14,6 @@ export default Ember.Controller.extend({
       var socketIO = this.get('socketService').socketFor('http://localhost:3000/');
 
       socketIO.emit('join', {message: data.message});
-
-      socketIO.on('message', function(data) {
-        if (Notification.permission === "granted") {
-          var notification = new Notification(data.msg);
-        }
-        else if (Notification.permission !== 'denied') {
-          Notification.requestPermission(function (permission) {
-
-            if (permission === "granted") {
-              var notification = new Notification(data.msg);
-            }
-          });
-        }
-      }, this);
     }
   }
 });
