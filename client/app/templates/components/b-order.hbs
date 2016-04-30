@@ -1,0 +1,45 @@
+<div class="b-order">
+  <h1 class="b-order__title">Информация о заказе</h1>
+
+  <ul class="b-order__content">
+    {{#each order.portions as |portion|}}
+      <li class="b-order__item">
+        <div class="b-order__wrapper">
+          <div class="b-order__row">
+            <span class="b-order__person">{{portion.owner.displayName}}</span>
+            <label class="b-order__checkbox-label">
+              <input type="checkbox" class="b-order__checkbox">
+              <span class="b-order__checkbox-text"></span>
+            </label>
+          </div>
+
+          <div class="b-order__row">
+            <span class="b-order__phone">тел.: {{portion.owner.phone}}</span>
+            <span class="b-order__sum">сумма: {{portion.cost}}</span>
+          </div>
+        </div>
+
+        <ul class="b-order__summary">
+          <li class="b-order__info">
+            <div class="b-order__left">
+              <div class="b-order__image"></div>
+            </div>
+            <div class="b-order__right">
+              <div class="b-order__dish">{{portion.text}}</div>
+              <span class="b-order__amount">{{portion.cost}}</span>
+            </div>
+          </li>
+        </ul>
+      </li>
+    {{/each}}
+  </ul>
+
+  <div class="b-order__actions">
+    <button {{action "toggleActiveState"}} class="button _submit">
+      {{#if order.active}}Перейти к оформлению{{else}}Отменить заказ{{/if}}
+    </button>
+    <button class="button _submit">Уведомить пользователей</button>
+  </div>
+</div>
+
+{{#link-to "new-portion-order" order aria-label="add new portion" class="btn-new-order"}}{{/link-to}}
