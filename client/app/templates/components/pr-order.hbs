@@ -5,5 +5,12 @@
   </div>
   <div class="pr-order__row">
     <div class="pr-order__manager">{{order.manager.displayName}}</div>
+    <div class="pr-order__money">
+      {{order.money.available}}/{{order.money.total}}
+      {{#unless order.isReady}}
+      <span class="pr-order__not-ready"
+            title="Минимальная сумма заказа {{order.money.required}}">*</span>
+      {{/unless}}
+    </div>
   </div>
 {{/link-to}}
