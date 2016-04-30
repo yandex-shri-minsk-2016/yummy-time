@@ -1,0 +1,6 @@
+<label class="f-default__label">
+  {{input type=type class="f-default__field" placeholder=placeholder }}
+</label>
+{{#if showMessage}}
+    <span class="has-error">{{v-get model valuePath 'message'}}</span>
+{{/if}}
