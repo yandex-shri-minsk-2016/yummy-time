@@ -1,12 +1,26 @@
 .order-list
   max-width 480px
-  margin 0 auto 20px
+  margin 0 auto
+  overflow-y auto
+  max-height calc(100vh - 200px)
+
+  @media $min768
+    &::-webkit-scrollbar
+      width 6px
+    &::-webkit-scrollbar-track
+      border-radius 0
+    &::-webkit-scrollbar-thumb
+      border-radius 0
+      background $bg-primary
+    &::-webkit-scrollbar-thumb:window-inactive
+      background $bg-primary
 
   &__item
-    margin-bottom 10px
     box-shadow 1px 1px 5px 0 rgba($bs-dark,.5)
     background $bg-light
     transition box-shadow .2s ease-out
+    &:not(:first-child)
+      margin-top 10px
 
     &:hover
       box-shadow 1px 1px 8px 0 rgba($bs-dark,.5)

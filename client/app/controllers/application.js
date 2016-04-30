@@ -8,6 +8,10 @@ export default Ember.Controller.extend({
   }),
   session: Ember.inject.service('session'),
 
+  isSign: Ember.computed('session.isAuthenticated', function() {
+    return this.get('session.isAuthenticated') ? '' : 'wrapper__no-sign';
+  }),
+
   actions: {
     invalidateSession() {
       this.get('session').invalidate();
