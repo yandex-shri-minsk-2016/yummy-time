@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  open: false,
+
   openClass: Ember.computed('open', function() {
     return this.get('open') ? 'open' : '';
   }),
@@ -12,6 +14,10 @@ export default Ember.Controller.extend({
     },
     slide() {
       this.toggleProperty('open');
+    },
+    hideMenu() {
+      this.set('open', false);
     }
   }
+
 });

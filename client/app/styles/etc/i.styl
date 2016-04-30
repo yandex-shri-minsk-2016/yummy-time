@@ -14,11 +14,12 @@
   color $c-light
   z-index 4
 
-  .open &
-    transform translateX(80px);
+  @media $max767
+    .open &
+      transform translateX(80px);
 
 
-@media $max767
+@media $min768
   .i-logo
     color $c-light
     left 120px

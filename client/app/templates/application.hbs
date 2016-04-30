@@ -1,6 +1,6 @@
 <div class="wrapper {{openClass}}">
   <aside class="s-sidebar">
-    <ul class="m-site" role="navigation" aria-label="main site menu">
+    <ul class="m-site" role="navigation" aria-label="main site menu" {{action 'invalidateSession'}}>
       <li class="m-site__item">
         {{#link-to "orders" class="m-site__link"}}
           <svg class="svg-home" xmlns="http://www.w3.org/2000/svg" width="460.298" height="460.297" viewBox="0 0 460.298 460.297">
@@ -49,7 +49,7 @@
     {{/if}}
   </header>
 
-  <div class="wrapper__content">
+  <div class="wrapper__content" {{action "hideMenu"}}>
     <section class="s-content">
       <div class="container">
         {{outlet}}
