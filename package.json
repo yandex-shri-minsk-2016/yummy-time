@@ -31,5 +31,8 @@
     "eslint-config-airbnb": "^7.0.0",
     "git-hooks": "^1.0.2",
     "jscs": "^3.0.2"
+  },
+  "dependencies": {
+    "socket.io": "^1.4.5"
   }
 }
