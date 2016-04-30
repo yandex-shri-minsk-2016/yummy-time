@@ -35,7 +35,9 @@
   </ul>
 
   <div class="b-order__actions">
-    <button class="button _submit">Перейти к оформлению</button>
+    <button {{action "toggleActiveState"}} class="button _submit">
+      {{#if order.active}}Перейти к оформлению{{else}}Отменить заказ{{/if}}
+    </button>
     <button class="button _submit">Уведомить пользователей</button>
   </div>
 </div>

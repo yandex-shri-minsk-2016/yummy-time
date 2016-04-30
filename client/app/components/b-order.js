@@ -18,5 +18,13 @@ export default Ember.Component.extend({
     }
 
     elem.find('.b-order__summary').slideToggle(100);
+  },
+
+  actions: {
+    toggleActiveState() {
+      const order = this.get('order');
+      order.toggleProperty('active');
+      order.save();
+    }
   }
 });
