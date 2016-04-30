@@ -9,11 +9,14 @@ export default Ember.Route.extend(ApplicationRouteMixin, BodyClassMixin, {
     this.get('session').loadCurrentAccount();
   },
 
-  renderTemplate: function(controller, model) {
-    var this_ = this;
-    this.render('application');             // render the application template
-    Ember.$(window).on('resize.removeOpenClass', function() {     // setup resize listener on the window object that will be called when window resizes
-      this_.controllerFor('application').set('open', false);
+  renderTemplate() {
+    // Render the application template
+    this.render('application');
+
+    // Setup resize listener on the window object that will be called when
+    // window resizes
+    Ember.$(window).on('resize.removeOpenClass', () => {
+      this.controllerFor('application').set('open', false);
     });
   }
 });
