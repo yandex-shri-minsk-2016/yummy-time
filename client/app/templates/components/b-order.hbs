@@ -2,20 +2,19 @@
   <h1 class="b-order__title">Информация о заказе</h1>
 
   <div class="b-order__description">
-      <div class="b-order__row">
-          <div class="b-order__place">{{order.vendor.title}}/{{order.location}}</div>
-          <time class="b-order__time">{{order.time}}</time>
+    <div class="b-order__row">
+      <div class="b-order__place">{{order.vendor.title}}/{{order.location}}</div>
+      <time class="b-order__time">{{order.time}}</time>
+    </div>
+    <div class="b-order__row">
+      <div class="b-order__manager">{{order.manager.displayName}}</div>
+      <div class="b-order__money">
+        {{order.money.available}}/{{order.money.total}}
+        {{#unless order.isReady}}
+          <span class="b-order__not-ready" title="Минимальная сумма заказа {{order.money.required}}">*</span>
+        {{/unless}}
       </div>
-      <div class="b-order__row">
-          <div class="b-order__manager">{{order.manager.displayName}}</div>
-          <div class="b-order__money">
-            {{order.money.available}}/{{order.money.total}}
-            {{#unless order.isReady}}
-                <span class="b-order__not-ready"
-                      title="Минимальная сумма заказа {{order.money.required}}">*</span>
-            {{/unless}}
-          </div>
-      </div>
+    </div>
   </div>
 
   <ul class="b-order__content">
