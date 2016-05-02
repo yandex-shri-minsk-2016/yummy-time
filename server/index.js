@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const http = require('http');
-const nodemailer = require('nodemailer');
+const notification = require('./app/controllers/notifications');
 
 const config = require('./config/config');
 // const app = express();
@@ -59,59 +59,8 @@ app.all('*', function(req, res, next) {
  next();
 });
 
-//notifications
-io.sockets.on("connection", function (socket) {
-  console.log('You have connected to the server', socket);
-  socket.on('join', function (data) {
-    console.log(data);
-    console.log(data.message);
-    socket.broadcast.emit('message', {msg: data.message});
+notification.connection(io);
 
-
-    var transporter = nodemailer.createTransport({
-      service: 'Gmail',
-    host: 'localhost:3000',
-    port: 465,
-    auth: { user: 'yummytime.test@gmail.com', pass: 'yandex-shri-minsk-2016' },
-    secure: false
-    });
-
-    var mailOptions = {
-      from: 'yummytime.test@gmail.com',
-      to: 'yummytime.test@gmail.com',
-      subject: 'Email Example',
-      text: data.message
-    };
-
-    transporter.verify(function(error, success) {
-     if (error) {
-      console.log(error);
-    } else {
-      transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-          console.log(error);
-
-        }else{
-          console.log('Message sent: ' + info.response);
-        };
-      });
-    }
-  });
-
-         transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-          console.log(error);
-
-        }else{
-          console.log('Message sent: ' + info.response);
-
-        };
-      });
-
-
-
-  });
-});
 
 // Bootstrap routes
 require('./config/routes')(app);

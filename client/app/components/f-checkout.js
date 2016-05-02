@@ -36,8 +36,11 @@ export default Ember.Component.extend({
 
     msg() {
      this.attrs.msg(
-      this.getProperties('message')
+
+      this.getProperties('message'),
+      this.get('model')
       );
+     console.log(this);
    }
   }
 
