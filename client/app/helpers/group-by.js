@@ -1,8 +1,7 @@
 import Ember from 'ember';
 
 export function groupBy(iter, byPath) {
-  // eslint-disable-next-line new-cap
-  const result = Ember.A();
+  const result = new Ember.A();
 
   iter.forEach((item) => {
     const _id = Ember.get(item, byPath);
@@ -11,8 +10,7 @@ export function groupBy(iter, byPath) {
     if (!hasGroup) {
       result.pushObject(Ember.Object.create({
         _id,
-        // eslint-disable-next-line new-cap
-        list: Ember.A(),
+        list: new Ember.A(),
         grouper: Ember.get(item, byPath.split('.', 1)[0])
       }));
     }
