@@ -18,11 +18,11 @@
   </div>
 
   <ul class="b-order__content">
-    {{#each order.portions as |portion|}}
+    {{#each (group-by "owner.id" portions) as |group|}}
       <li class="b-order__item">
         <div class="b-order__wrapper">
           <div class="b-order__row">
-            <span class="b-order__person">{{portion.owner.displayName}}</span>
+            <span class="b-order__person">{{group.grouper.displayName}}</span>
             <label class="b-order__checkbox-label">
               <input type="checkbox" class="b-order__checkbox">
               <span class="b-order__checkbox-text"></span>
@@ -30,21 +30,22 @@
           </div>
 
           <div class="b-order__row">
-            <span class="b-order__phone">тел.: {{portion.owner.phone}}</span>
-            <span class="b-order__sum">сумма: {{portion.cost}}</span>
+            <span class="b-order__phone">тел.: {{group.grouper.phone}}</span>
           </div>
         </div>
 
         <ul class="b-order__summary">
-          <li class="b-order__info">
-            <div class="b-order__left">
-              <div class="b-order__image"></div>
-            </div>
-            <div class="b-order__right">
-              <div class="b-order__dish">{{portion.text}}</div>
-              <span class="b-order__amount">{{portion.cost}}</span>
-            </div>
-          </li>
+          {{#each group.list as |portion|}}
+            <li class="b-order__info">
+              <div class="b-order__left">
+                <div class="b-order__image"></div>
+              </div>
+              <div class="b-order__right">
+                <div class="b-order__dish">{{portion.text}}</div>
+                <span class="b-order__amount">{{portion.cost}}</span>
+              </div>
+            </li>
+          {{/each}}
         </ul>
       </li>
     {{/each}}
