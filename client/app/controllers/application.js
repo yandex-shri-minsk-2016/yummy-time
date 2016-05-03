@@ -1,15 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  session: Ember.inject.service('session'),
   open: false,
 
   openClass: Ember.computed('open', function() {
-    return this.get('open') ? 'open' : '';
+    return this.get('open') ? '_open' : '';
   }),
-  session: Ember.inject.service('session'),
 
-  isSign: Ember.computed('session.isAuthenticated', function() {
-    return this.get('session.isAuthenticated') ? '' : 'wrapper__no-sign';
+  authClass: Ember.computed('session.isAuthenticated', function() {
+    return this.get('session.isAuthenticated') ? '' : '_no-auth';
   }),
 
   actions: {
