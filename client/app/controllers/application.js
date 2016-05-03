@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
   }),
 
   authClass: Ember.computed('session.isAuthenticated', function() {
-    return this.get('session.isAuthenticated') ? '' : 'wrapper__no-auth';
+    return this.get('session.isAuthenticated') ? '' : '_no-auth';
   }),
 
   actions: {
