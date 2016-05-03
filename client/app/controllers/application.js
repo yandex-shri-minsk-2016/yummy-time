@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   open: false,
 
   openClass: Ember.computed('open', function() {
-    return this.get('open') ? 'open' : '';
+    return this.get('open') ? '_open' : '';
   }),
 
   authClass: Ember.computed('session.isAuthenticated', function() {
