@@ -8,8 +8,8 @@ export default Ember.Controller.extend({
     return this.get('open') ? 'open' : '';
   }),
 
-  isSign: Ember.computed('session.isAuthenticated', function() {
-    return this.get('session.isAuthenticated') ? '' : 'wrapper__no-sign';
+  authClass: Ember.computed('session.isAuthenticated', function() {
+    return this.get('session.isAuthenticated') ? '' : 'wrapper__no-auth';
   }),
 
   actions: {
