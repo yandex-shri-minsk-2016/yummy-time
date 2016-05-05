@@ -1,11 +1,11 @@
-.f-checkbox
+.checkbox
 
   &__control
     z-index -1
     opacity 0
 
     &:checked
-      &+ .f-checkbox__text:after
+      &+ .checkbox__text:after
         position absolute
         top 0
         right 0
@@ -18,10 +18,10 @@
         content '\2713'
         text-align center
 
-      &+ .f-checkbox__text:before
+      &+ .checkbox__text:before
         background lighten($bg-action, 35)
 
-      &:focus + .f-checkbox__text:before
+      &:focus + .checkbox__text:before
         box-shadow 0 0 0 1px $bg-action,
                    inset 0 0 0 1px $bg-action
 
