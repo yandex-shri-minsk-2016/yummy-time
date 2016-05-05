@@ -66,46 +66,9 @@
     &:not(:first-child)
       margin-top: 5px
 
-
   &__checkbox
-    display none
-
-    &:checked + .b-order__checkbox-text:after
-      position absolute
-      top 0
-      bottom 2px
-      margin auto 0
-      left 3px
-      width 6px
-      height 3px
-      border-left 1px solid $bg-dark
-      border-bottom 1px solid $bg-dark
-      transform-origin center
-      transform rotate(-45deg)
-      content ''
-
-  &__checkbox-label
-    font-weight 400
-    cursor pointer
-
-  &__checkbox-text
-    font-size 1.4rem
-    position relative
-    display block
     width 30px
     height 30px
-
-    &:before
-      position absolute
-      left 0
-      top 0
-      bottom 0
-      margin auto 0
-      width 12px
-      height 12px
-      border 1px solid $bg-dark
-      background #fff
-      content ''
 
   &__actions
     display flex
