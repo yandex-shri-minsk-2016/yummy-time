@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   click: (e) => {
     const target = $(e.target);
 
-    if (target.hasClass('b-order__checkbox')) {
+    if (target.hasClass('checkbox__text') || target.hasClass('checkbox__control')) {
       e.stopPropagation();
       return;
     }
