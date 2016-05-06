@@ -1,9 +1,6 @@
 <div class="b-portion__row">
   <div class="b-portion__text">{{portion.text}}</div>
-  <label class="checkbox b-portion__checkbox">
-    {{input type="checkbox" class="checkbox__control" checked=portion.paid}}
-    <span class="checkbox__text"></span>
-  </label>
+  {{b-checkbox checked=portion.paid onchange=(action 'togglePaidStatus' portion)}}
 </div>
 
 <div class="b-portion__row">
