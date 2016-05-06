@@ -2,8 +2,13 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  session: Ember.inject.service(),
   tagName: 'li',
   classNames: ['b-order-group'],
+
+  isManager: Ember.computed(function() {
+    return this.get('session.account.id') !== this.get('order.manager.id');
+  }),
 
   allPaid: Ember.computed('portions.@each.paid', function() {
     return this.get('portions').isEvery('paid', true);

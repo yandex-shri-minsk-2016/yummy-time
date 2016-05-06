@@ -5,7 +5,7 @@
 
   <ul class="b-order__content">
     {{#each (group-by "owner.id" portions) as |group|}}
-      {{b-order-group portions=group.list owner=group.grouper}}
+      {{b-order-group order=order portions=group.list owner=group.grouper}}
     {{/each}}
   </ul>
 

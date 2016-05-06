@@ -4,12 +4,14 @@
       <span class="b-person__name">{{owner.displayName}}</span>
       <span class="b-person__phone">{{owner.phone}}</span>
     </div>
-    {{b-checkbox class="b-order-group__checkbox" checked=allPaid onchange=(action 'toggleAll') }}
+    {{b-checkbox class="b-order-group__checkbox"
+                 checked=allPaid disabled=isManager
+                 onchange=(action 'toggleAll') }}
   </div>
 </div>
 
 <ul class="b-order-group__summary">
   {{#each portions as |portion|}}
-    {{b-portion portion=portion}}
+    {{b-portion portion=portion isManager=isManager}}
   {{/each}}
 </ul>
