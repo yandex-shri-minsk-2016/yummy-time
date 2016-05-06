@@ -5,20 +5,27 @@ moduleForComponent('f-account', 'Integration | Component | f account', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+const accountStub = Ember.Object.create({
+  name: 'name',
+  email: 'email',
+  phone: 'phone'
+});
 
-  this.render(hbs`{{f-account}}`);
+test('it can be submitted', function(assert) {
+  this.on('submit', () => { assert.ok(true); })
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{f-account submit=(action 'submit')}}`);
+  this.$('button').click()
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#f-account}}
-      template block text
-    {{/f-account}}
-  `);
+test('it bound to account model', function(assert) {
+  this.set('account', accountStub);
+  this.on('submit', () => {});
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{f-account account=account submit=(action 'submit')}}`);
+  this.$('input').val('new name');
+  this.$('input').change();
+  this.$('button').click();
+
+  assert.ok(this.get('account.name') == 'new name');
 });
