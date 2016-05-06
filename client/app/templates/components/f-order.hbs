@@ -4,16 +4,15 @@
 
   <div class="f-default__wrapper">
 
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{ember-selectize content=vendors
-        optionValuePath='content.id'
-        optionLabelPath='content.title'
-        optionComponent='pr-vendor-option'
-        select-item='setVendor'
-        placeholder='Выберите заведение' }}
-      </label>
-    </div>
+    {{validated-selectize content=vendors
+                          optionValuePath='content.id'
+                          optionLabelPath='content.title'
+                          optionComponent='pr-vendor-option'
+                          selectItem=(action 'setVendor')
+                          valuePath='vendor'
+                          model=this
+                          placeholder='Выберите заведение'
+    }}
 
     {{#if vendor}}
       <div class="f-default__row">

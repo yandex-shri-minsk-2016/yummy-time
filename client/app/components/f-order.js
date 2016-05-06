@@ -2,7 +2,10 @@ import Ember from 'ember';
 import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
-  vendor: validator('presence', true),
+  vendor: {
+    validators: [validator('presence', true)],
+    message: 'Обязательное поле'
+  },
   location: {
     debounce: 200,
     validators: [

@@ -16,8 +16,8 @@ export default Ember.Component.extend({
   validation: null,
 
   init() {
-    this._super(...arguments);
-    var valuePath = this.get('valuePath');
+    var valuePath = this.get('valuePath'); // eslint-disable-line
+    this._super(...arguments); // eslint-disable-line prefer-rest-params
     defineProperty(this, 'validation', computed.oneWay(`model.validations.attrs.${valuePath}`));
     defineProperty(this, 'value', computed.alias(`model.${valuePath}`));
   },
@@ -28,7 +28,7 @@ export default Ember.Component.extend({
     },
 
     validateField() {
-      this.get('model').validate({on: this.get('valuePath')});
+      this.get('model').validate({ on: this.get('valuePath') });
     }
   },
 
