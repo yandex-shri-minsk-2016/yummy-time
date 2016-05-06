@@ -49,3 +49,11 @@
       box-shadow 0 0 0 1px $bg-action,
                  inset 0 0 0 1px $bg-action
 
+  &._disabled
+    pointer-events none
+    cursor not-allowed
+    opacity .5
+    color $gr9
+
+    .checkbox__text:before
+      background rgba(0,0,0,.08)
