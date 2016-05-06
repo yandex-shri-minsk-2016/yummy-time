@@ -5,20 +5,27 @@ moduleForComponent('b-order-group', 'Integration | Component | b order group', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+const ownerStub = Ember.Object.create({ displayName: 'me', phone: 'hidden' });
+const portionsStub = Ember.A([
+  Ember.Object.create({ paid: true, cost: 1, save() {} }),
+  Ember.Object.create({ paid: false, cost: 2, save() {} })
+]);
 
-  this.render(hbs`{{b-order-group}}`);
+test('should render group', function(assert) {
+  this.set('portions', portionsStub);
+  this.set('owner', ownerStub);
+  this.render(hbs`{{b-order-group portions=portions owner=owner}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$('.b-order-group__person').text(), 'me');
+  assert.equal(this.$('.b-order-group__phone').text(), 'тел.: hidden');
+  assert.equal(this.$('.b-portion').length, 2);
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#b-order-group}}
-      template block text
-    {{/b-order-group}}
-  `);
+test('should toggle all portion paid status at once', function(assert) {
+  this.set('portions', portionsStub);
+  this.set('owner', ownerStub);
+  this.render(hbs`{{b-order-group portions=portions owner=owner}}`);
+  this.$('.b-order-group__checkbox input').click();
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(this.get('portions').every((item) => { return item.paid }));
 });
