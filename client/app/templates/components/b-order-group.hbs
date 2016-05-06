@@ -1,15 +1,15 @@
-<div class="b-order__wrapper">
-  <div class="b-order__row">
-    <span class="b-order__person">{{owner.displayName}}</span>
-    {{b-checkbox class="b-order__checkbox" checked=allPaid onchange=(action 'sayHi') }}
+<div class="b-order-group__wrapper">
+  <div class="b-order-group__row">
+    <span class="b-order-group__person">{{owner.displayName}}</span>
+    {{b-checkbox class="b-order-group__checkbox" checked=allPaid onchange=(action 'sayHi') }}
   </div>
 
-  <div class="b-order__row">
-    <span class="b-order__phone">тел.: {{owner.phone}}</span>
+  <div class="b-order-group__row">
+    <span class="b-order-group__phone">тел.: {{owner.phone}}</span>
   </div>
 </div>
 
-<ul class="b-order__summary">
+<ul class="b-order-group__summary">
   {{#each portions as |portion|}}
     {{b-portion portion=portion}}
   {{/each}}
