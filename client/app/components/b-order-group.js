@@ -27,8 +27,12 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    sayHi() {
-      console.log('hi, b-order-group');
+    toggleAll() {
+      const value = this.get('allPaid');
+      this.get('portions').forEach((portion) => {
+        portion.set('paid', !value);
+        portion.save();
+      });
     }
   }
 });
