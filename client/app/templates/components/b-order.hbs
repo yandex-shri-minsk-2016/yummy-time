@@ -19,24 +19,7 @@
 
   <ul class="b-order__content">
     {{#each (group-by "owner.id" portions) as |group|}}
-      <li class="b-order__item">
-        <div class="b-order__wrapper">
-          <div class="b-order__row">
-            <span class="b-order__person">{{group.grouper.displayName}}</span>
-            {{b-checkbox class="b-order__checkbox" onchange=(action 'sayHi') }}
-          </div>
-
-          <div class="b-order__row">
-            <span class="b-order__phone">тел.: {{group.grouper.phone}}</span>
-          </div>
-        </div>
-
-        <ul class="b-order__summary">
-          {{#each group.list as |portion|}}
-            {{b-portion portion=portion}}
-          {{/each}}
-        </ul>
-      </li>
+      {{b-order-group portions=group.list owner=group.grouper}}
     {{/each}}
   </ul>
 

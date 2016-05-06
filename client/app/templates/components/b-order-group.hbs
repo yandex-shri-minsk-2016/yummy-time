@@ -1,0 +1,16 @@
+<div class="b-order__wrapper">
+  <div class="b-order__row">
+    <span class="b-order__person">{{owner.displayName}}</span>
+    {{b-checkbox class="b-order__checkbox" onchange=(action 'sayHi') }}
+  </div>
+
+  <div class="b-order__row">
+    <span class="b-order__phone">тел.: {{owner.phone}}</span>
+  </div>
+</div>
+
+<ul class="b-order__summary">
+  {{#each portions as |portion|}}
+    {{b-portion portion=portion}}
+  {{/each}}
+</ul>

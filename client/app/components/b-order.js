@@ -21,10 +21,6 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    sayHi() {
-      console.log('hi b-order');
-    },
-
     toggleActiveState() {
       const order = this.get('order');
       order.toggleProperty('active');
