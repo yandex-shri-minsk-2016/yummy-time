@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   classNames: ['b-portion'],
 
   actions: {
-    togglePaidStatus(portion) {
+    togglePaid(portion) {
       portion.toggleProperty('paid');
       portion.save();
     }
