@@ -5,11 +5,9 @@ moduleForModel('account', 'Unit | Serializer | account', {
   needs: ['serializer:account']
 });
 
-// Replace this with your real tests.
-test('it serializes records', function(assert) {
-  let record = this.subject();
+test('should remove password attribute', function(assert) {
+  let account = this.subject({ password: 'secret' });
+  let res = account.serialize();
 
-  let serializedRecord = record.serialize();
-
-  assert.ok(serializedRecord);
+  assert.notOk(res.data.attributes.hasOwnProperty('password'));
 });
