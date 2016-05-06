@@ -11,11 +11,13 @@ export default DS.Model.extend({
   paidChanged: Ember.observer('paid', function() {
     this.get('order').then((order) => {
       const cost = this.get('cost');
+      const value = (this.get('paid')) ? +cost : -cost;
       const available = order.get('money.available');
-      order.set('money.available',
-        available + ((this.get('paid')) ? +cost : -cost)
-      );
-      order.save();
+
+      if (value > 0 || available > 0) {
+        order.set('money.available', available + value);
+        order.save();
+      }
     });
   })
 });
