@@ -5,8 +5,22 @@ moduleForModel('account', 'Unit | Serializer | account', {
   needs: ['serializer:account']
 });
 
-test('should remove password attribute', function(assert) {
+test('should serialize password', function(assert) {
   let account = this.subject({ password: 'secret' });
+  let res = account.serialize();
+
+  assert.equal(res.data.attributes.password, 'secret');
+});
+
+test('should remove undefined password', function(assert) {
+  let account = this.subject({ password: undefined });
+  let res = account.serialize();
+
+  assert.notOk(res.data.attributes.hasOwnProperty('password'));
+});
+
+test('should remove null password', function(assert) {
+  let account = this.subject({ password: null });
   let res = account.serialize();
 
   assert.notOk(res.data.attributes.hasOwnProperty('password'));
