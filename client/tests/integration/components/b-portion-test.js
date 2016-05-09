@@ -5,20 +5,25 @@ moduleForComponent('b-portion', 'Integration | Component | b portion', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+const portionStub = Ember.Object.create({
+  cost: 42,
+  text: 'hi',
+  paid: false,
+  save() {}
+});
 
-  this.render(hbs`{{b-portion}}`);
+test('should render portion', function(assert) {
+  this.set('portion', portionStub);
+  this.render(hbs`{{b-portion portion=portion}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$('.b-portion__cost').text(), '42');
+  assert.equal(this.$('.b-portion__text').text(), 'hi');
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#b-portion}}
-      template block text
-    {{/b-portion}}
-  `);
+test('should toggle paid status', function(assert) {
+  this.set('portion', portionStub);
+  this.render(hbs`{{b-portion portion=portion}}`);
+  this.$('input').click();
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(this.get('portion.paid'));
 });
