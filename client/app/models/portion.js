@@ -8,16 +8,14 @@ export default DS.Model.extend({
   owner: DS.belongsTo('account'),
   order: DS.belongsTo('order'),
 
-  paidChanged: Ember.observer('paid', function() {
+  updateOrderMoney() {
     this.get('order').then((order) => {
       const cost = this.get('cost');
-      const value = (this.get('paid')) ? +cost : -cost;
+      const paid = this.get('paid');
       const available = order.get('money.available');
 
-      if (value > 0 || available > 0) {
-        order.set('money.available', available + value);
-        order.save();
-      }
+      order.set('money.available', available + ((paid) ? +cost : -cost));
+      order.save();
     });
-  })
+  }
 });

@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   actions: {
     togglePaid(portion) {
       portion.toggleProperty('paid');
+      portion.updateOrderMoney();
       portion.save();
     }
   }

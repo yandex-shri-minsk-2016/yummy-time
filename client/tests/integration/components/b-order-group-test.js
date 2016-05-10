@@ -7,8 +7,8 @@ moduleForComponent('b-order-group', 'Integration | Component | b order group', {
 
 const ownerStub = Ember.Object.create({ displayName: 'me', phone: 'hidden' });
 const portionsStub = Ember.A([
-  Ember.Object.create({ paid: true, cost: 1, save() {} }),
-  Ember.Object.create({ paid: false, cost: 2, save() {} })
+  Ember.Object.create({ paid: true, cost: 1, save() {}, updateOrderMoney() {} }),
+  Ember.Object.create({ paid: false, cost: 2, save() {}, updateOrderMoney() {} })
 ]);
 
 test('should render group', function(assert) {

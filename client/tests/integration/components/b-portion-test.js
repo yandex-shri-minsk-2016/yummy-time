@@ -9,7 +9,8 @@ const portionStub = Ember.Object.create({
   cost: 42,
   text: 'hi',
   paid: false,
-  save() {}
+  save() {},
+  updateOrderMoney() {}
 });
 
 test('should render portion', function(assert) {
