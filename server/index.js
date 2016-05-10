@@ -10,12 +10,9 @@ const http = require('http');
 const notification = require('./app/controllers/notifications');
 
 const config = require('./config/config');
-// const app = express();
-// const server = require('http').createServer(app);
-// const io = require("socket.io").listen(server)
-var app = express();
-var server = http.createServer(app);
-var io = require('socket.io').listen(server);
+const app = express();
+const server = http.createServer(app);
+const io = require('socket.io').listen(server);
 
 
 function connect(options) {
@@ -24,7 +21,6 @@ function connect(options) {
 
 function listen() {
   server.listen(config.port);
-  // app.listen(config.port);
 
   // eslint-disable-next-line no-console
   console.log(`Express app started on http://127.0.0.1:${config.port}`);
