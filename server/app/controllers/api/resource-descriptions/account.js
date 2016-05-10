@@ -6,7 +6,7 @@ module.exports = {
   },
 
   beforeRender(resource, req) {
-    if (req.params.id !== req.user.id) {
+    if (!req.user || req.params.id !== req.user.id) {
       resource.removeAttr('email');
     }
     resource.removeAttr('hashed_password');
