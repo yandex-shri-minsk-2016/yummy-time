@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
+  notifications: Ember.inject.service('notifications'),
 
   actions: {
     addToOrder(order, account, attrs) {
@@ -22,6 +23,7 @@ export default Ember.Controller.extend({
         order.save();
       });
 
+      this.get('notifications').subscribeOrderNotification(order.id);
       this.transitionToRoute('orders');
     }
   }

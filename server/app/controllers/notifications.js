@@ -1,80 +1,116 @@
-  'use strict';
+'use strict';
 
-  const nodemailer = require('nodemailer');
-  const config = require('../../config/config');
-  const mongoose = require('mongoose');
-  const Order = require('../models/order');
-  const Account = require('../models/account');
-  const Portion = require('../models/portion');
-
-  exports.connection = function(io) {
-  //notifications
-  io.sockets.on("connection", function (socket) {
-    console.log('You have connected to the server', socket);
-    socket.on('join', function (data) {
-      console.log(data);
-      console.log(data.message);
-      console.log(data.order);
-      socket.broadcast.emit('message', {msg: data.message});
+const nodemailer = require('nodemailer');
+const config = require('../../config/config');
+const mongoose = require('mongoose');
+const Order = require('../models/order');
+const Account = require('../models/account');
+const Portion = require('../models/portion');
 
 
-  // find order
-  Order
-  .findById(data.order)
-  .populate({
-    path: 'portions',
-    model: 'Portion',
-    populate: {
-      path: 'owner',
-      model: 'Account'
-    }
-  })
-  .exec(function(err, a){
-    console.log("final order:" + a);
-    console.log("portions:" + a.portions);
-    a.portions.forEach(function(item, i, arr) {
+function sendEmail(email, message) {
 
-      Portion
-      .findById(item.id)
-      .populate({
-        path: 'owner',
-        model: 'Account'
-      }).exec(function(err, b){
-        console.log("final portion:" + b);
-      });
-
-
-    });
-
-  });
-
-
-  // send email
-  var transporter = nodemailer.createTransport('smtps://yummytime.test%40gmail.com:yandex-shri-minsk-2016@smtp.gmail.com');
+  var transporter = nodemailer.createTransport(config.smtp);
 
   var mailOptions = {
     from: 'yummytime.test@gmail.com',
-    to: 'rei-li@mail.ru',
+    to: email,
     subject: 'Notification',
-    text: data.message
+    text: message
   };
 
   transporter.verify(function(error, success) {
-   if (error) {
-    console.log(error);
-  } else {
-    transporter.sendMail(mailOptions, function(error, info){
-      if(error){
-        console.log(error);
+    if (error) {
+      console.log(error);
+    } else {
+      transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Message sent: ' + info.response);
+        };
+      });
+    }
+  });
+}
 
-      }else{
-        console.log('Message sent: ' + info.response);
-      };
+
+exports.connection = function(io) {
+
+  io.sockets.on("connection", function(socket) {
+
+    socket.on('join', function(data) {
+      socket.join(data.room);
     });
-  }
-});
+
+    socket.on('leave', function(data) {
+      socket.leave(data.room);
+    });
+
+    socket.on('sendMessage', function(data) {
+      socket.broadcast.to(data.order).emit('message', { msg: data.message });
+
+      var emails = [];
+      Order
+        .findById(data.order)
+        .populate({
+          path: 'portions',
+          model: 'Portion',
+          populate: {
+            path: 'owner',
+            model: 'Account'
+          }
+        })
+        .exec(function(err, a) {
+          a.portions.forEach(function(item, i, arr) {
+
+            var isInList = false;
+            emails.forEach(function(email, i, arr) {
+              if (email === item.owner.email) {
+                isInList = true;
+              }
+            });
+            if (!isInList) {
+              emails.push(item.owner.email)
+            }
+          });
+
+          emails.forEach(function(email, i, arr) {
+            sendEmail(email, data.message);
+          });
+        });
+
+    });
 
 
-});
+    socket.on('getOrders', function(data) {
+      var orders = [];
+      Order
+        .find()
+        .populate({
+          path: 'portions',
+          model: 'Portion',
+          populate: {
+            path: 'owner',
+            model: 'Account'
+          }
+        })
+        .exec(function(err, a) {
+
+          a.forEach(function(item, i, arr) {
+            var portions = item.portions;
+            for (i = 0; i < portions.length; i++) {
+              if (portions[i].owner.email === data.email) {
+                orders.push(item.id);
+                break;
+              }
+            }
+          });
+
+          io.sockets.in(data.email).emit('orders', { orders: orders });
+        });
+
+    });
+
   });
 };

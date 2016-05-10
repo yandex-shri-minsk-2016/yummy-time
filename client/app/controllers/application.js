@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
+  notifications: Ember.inject.service('notifications'),
   open: false,
 
   openClass: Ember.computed('open', function() {
@@ -15,6 +16,7 @@ export default Ember.Controller.extend({
   actions: {
     invalidateSession() {
       this.get('session').invalidate();
+      this.get('notifications').unsubscribeFromOrderNotifications();
     },
     slide() {
       this.toggleProperty('open');

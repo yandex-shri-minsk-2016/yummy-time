@@ -51,8 +51,9 @@ require('./config/cors')(app);
 require('./config/logger')(app);
 require('./config/passport')(app, passport);
 
+// headers to connect to client
 app.all('*', function(req, res, next) {
- res.header("Access-Control-Allow-Origin", 'http://localhost:4200');
+ res.header("Access-Control-Allow-Origin", config.clientPort);
  res.header("Access-Control-Allow-Headers", "X-Requested-With");
  res.header('Access-Control-Allow-Headers', 'Content-Type');
  res.header('Access-Control-Allow-Credentials', 'true');
