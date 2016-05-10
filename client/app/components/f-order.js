@@ -1,8 +1,27 @@
 import Ember from 'ember';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-export default Ember.Component.extend({
+const Validations = buildValidations({
+  vendor: validator('presence', true),
+  location: {
+    debounce: 200,
+    validators: [
+      validator('presence', {
+        presence: true,
+        message: 'Обязательное поле'
+      })
+    ]
+  },
+  time: {
+    validators: [validator('presence', true)],
+    message: 'Обязательное поле'
+  }
+});
+
+export default Ember.Component.extend(Validations, {
   session: Ember.inject.service(),
   vendor: null,
+  didValidate: false,
 
   actions: {
     setVendor(vendor) {
@@ -10,11 +29,16 @@ export default Ember.Component.extend({
     },
 
     submit() {
-      this.attrs.submit(
-        this.get('vendor'),
-        this.get('session.account'),
-        this.getProperties('location', 'time')
-      );
+      this.validate().then(({ validations }) => {
+        if (validations.get('isValid')) {
+          this.attrs.submit(
+            this.get('vendor'),
+            this.get('session.account'),
+            this.getProperties('location', 'time')
+          );
+        }
+        this.set('didValidate', true);
+      });
     }
   }
 });
