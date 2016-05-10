@@ -5,14 +5,13 @@
   <div class="f-default__wrapper">
 
     {{b-selectize content=vendors
-                          optionValuePath='content.id'
-                          optionLabelPath='content.title'
-                          optionComponent='pr-vendor-option'
-                          selectItem=(action 'setVendor')
-                          valuePath='vendor'
-                          model=this
-                          placeholder='Выберите заведение'
-    }}
+                  optionValuePath='content.id'
+                  optionLabelPath='content.title'
+                  optionComponent='pr-vendor-option'
+                  selectItem=(action 'setVendor')
+                  valuePath='vendor'
+                  model=this
+                  placeholder='Выберите заведение'}}
 
     {{#if vendor}}
       <div class="f-default__row">
@@ -21,8 +20,8 @@
       </div>
     {{/if}}
 
-    {{b-input model=this placeholder='Место доставки' valuePath='location' }}
-    {{b-input model=this placeholder='Время' valuePath='time' }}
+    {{b-input model=this placeholder='Место доставки' valuePath='location'}}
+    {{b-input model=this placeholder='Время' valuePath='time'}}
 
   </div>
 
