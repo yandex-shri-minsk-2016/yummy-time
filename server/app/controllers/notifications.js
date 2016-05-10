@@ -100,7 +100,7 @@ exports.connection = function(io) {
           a.forEach(function(item, i, arr) {
             var portions = item.portions;
             for (i = 0; i < portions.length; i++) {
-              if (portions[i].owner.email === data.email) {
+              if (portions[i].owner !== undefined && portions[i].owner.email === data.email) {
                 orders.push(item.id);
                 break;
               }
