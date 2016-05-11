@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('register');
   this.route('login');
   this.route('vendors', { path: '/vendors' });
+  this.route('new-vendor', { path: '/vendors/new' });
   this.route('checkout', { path: '/orders/:order_id/checkout' });
   // eslint-disable-next-line prefer-arrow-callback
   this.route('account', function() {});
