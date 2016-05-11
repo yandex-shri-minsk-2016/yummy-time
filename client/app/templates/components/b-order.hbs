@@ -3,12 +3,12 @@
 
   <div class="b-order__description">
     <div class="b-order__row">
-      <div class="b-order__place">{{order.vendor.title}}/{{order.location}}</div>
+      <div class="b-order__place">{{order.vendor.title}}</div>
       <time class="b-order__time">{{order.time}}</time>
     </div>
 
     <div class="b-order__row">
-      <div class="b-order__manager">{{order.manager.displayName}}</div>
+      <div class="b-order__manager">{{order.manager.displayName}}/{{order.location}}</div>
       <div class="b-order__money">
         {{order.money.available}}/{{order.money.total}}
         {{#unless order.isReady}}

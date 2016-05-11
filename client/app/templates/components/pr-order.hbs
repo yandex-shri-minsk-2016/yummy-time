@@ -4,7 +4,7 @@
     <time class="pr-order__time">{{order.time}}</time>
   </div>
   <div class="pr-order__row">
-    <div class="pr-order__manager">{{order.manager.displayName}}</div>
+    <div class="pr-order__manager">{{order.manager.displayName}}/{{order.location}}</div>
     <div class="pr-order__money">
       {{order.money.available}}/{{order.money.total}}
       {{#unless order.isReady}}
