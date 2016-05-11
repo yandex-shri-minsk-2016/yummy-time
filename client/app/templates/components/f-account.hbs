@@ -1,0 +1,26 @@
+<form class="f-default f-account">
+
+  <h2 class="f-default__title">Настройки аккаунта</h2>
+
+  <div class="f-default__wrapper">
+    <div class="f-default__row">
+      <label class="f-default__label">
+        {{input value=account.name class="f-default__field" placeholder="Name"}}
+      </label>
+    </div>
+
+    <div class="f-default__row">
+      <label class="f-default__label">
+        {{input value=account.email class="f-default__field" placeholder="Email"}}
+      </label>
+    </div>
+
+    <div class="f-default__row">
+      <label class="f-default__label">
+        {{input value=account.phone class="f-default__field" placeholder="Phone"}}
+      </label>
+    </div>
+  </div>
+
+  <button {{action "submit"}} class="button _submit">Сохранить настройки</button>
+</form>
