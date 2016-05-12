@@ -1,0 +1,8 @@
+<div class="b-portion__row">
+  <div class="b-portion__text">{{portion.text}}</div>
+  {{b-checkbox checked=portion.paid onchange=(action 'togglePaid' portion)}}
+</div>
+
+<div class="b-portion__row">
+  <div class="b-portion__cost">{{portion.cost}}</div>
+</div>

@@ -5,27 +5,6 @@
     z-index -1
     opacity 0
 
-    &:checked
-      &+ .checkbox__text:after
-        position absolute
-        top 0
-        right 0
-        bottom 0
-        left 0
-        width 14px
-        height 14px
-        margin auto 0
-        color $bg-dark
-        content '\2713'
-        text-align center
-
-      &+ .checkbox__text:before
-        background lighten($bg-action, 35)
-
-      &:focus + .checkbox__text:before
-        box-shadow 0 0 0 1px $bg-action,
-                   inset 0 0 0 1px $bg-action
-
   &__label
     font-weight 400
 
@@ -51,4 +30,25 @@
 
     &:hover
       background rgba(0,0,0,.3)
+
+  &._checked
+    .checkbox__text:after
+      position absolute
+      top 0
+      right 0
+      bottom 0
+      left 0
+      width 14px
+      height 14px
+      margin auto 0
+      color $bg-dark
+      content '\2713'
+      text-align center
+
+    .checkbox__text:before
+      background lighten($bg-action, 35)
+
+    &:focus + .checkbox__text:before
+      box-shadow 0 0 0 1px $bg-action,
+                 inset 0 0 0 1px $bg-action
 
