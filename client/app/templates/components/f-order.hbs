@@ -4,16 +4,14 @@
 
   <div class="f-default__wrapper">
 
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{ember-selectize content=vendors
-        optionValuePath='content.id'
-        optionLabelPath='content.title'
-        optionComponent='pr-vendor-option'
-        select-item='setVendor'
-        placeholder='Выберите заведение' }}
-      </label>
-    </div>
+    {{b-selectize content=vendors
+                  optionValuePath='content.id'
+                  optionLabelPath='content.title'
+                  optionComponent='pr-vendor-option'
+                  selectItem=(action 'setVendor')
+                  valuePath='vendor'
+                  model=this
+                  placeholder='Выберите заведение'}}
 
     {{#if vendor}}
       <div class="f-default__row">
@@ -22,8 +20,8 @@
       </div>
     {{/if}}
 
-    {{b-input model=this placeholder='Место доставки' valuePath='location' }}
-    {{b-input model=this placeholder='Время' valuePath='time' }}
+    {{b-input model=this placeholder='Место доставки' valuePath='location'}}
+    {{b-input model=this placeholder='Время' valuePath='time'}}
 
   </div>
 
