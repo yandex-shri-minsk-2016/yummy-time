@@ -2,17 +2,8 @@
   <h2 class="f-default__title">Авторизация</h2>
 
   <div class="f-default__wrapper">
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{input value=identification class="f-default__field" placeholder="e-mail"}}
-      </label>
-    </div>
-
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{input value=password class="f-default__field" placeholder="password"}}
-      </label>
-    </div>
+    {{b-input model=this valuePath='identification' placeholder='e-mail'}}
+    {{b-input model=this valuePath='password' placeholder='password'}}
   </div>
 
   <button {{action "submit"}} type="submit"
