@@ -18,7 +18,7 @@ test('should render portion', function(assert) {
   this.render(hbs`{{b-portion portion=portion}}`);
 
   assert.equal(this.$('.b-portion__cost').text(), '42');
-  assert.equal(this.$('.b-portion__text').text(), 'hi');
+  assert.equal(this.$('.b-portion__text').text().trim(), 'hi\n    ×');
 });
 
 test('should toggle paid status', function(assert) {
