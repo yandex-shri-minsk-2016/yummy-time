@@ -30,7 +30,7 @@ export default DS.Model.extend({
     this.set('money.total', total - cost);
     if (portion.get('paid')) {
       this.set('money.available', available - cost);
-    };
+    }
 
     this.get('portions').popObject(portion);
   }
