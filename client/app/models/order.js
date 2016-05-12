@@ -20,5 +20,18 @@ export default DS.Model.extend({
 
     this.set('money.total', total + cost);
     this.get('portions').pushObject(portion);
+  },
+
+  removePortion(portion) {
+    const available = this.get('money.available');
+    const total = this.get('money.total');
+    const cost = portion.get('cost');
+
+    this.set('money.total', total - cost);
+    if (portion.get('paid')) {
+      this.set('money.available', available - cost);
+    };
+
+    this.get('portions').popObject(portion);
   }
 });
