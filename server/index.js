@@ -36,7 +36,7 @@ connect()
  * Expose application
  */
 
- module.exports = app;
+module.exports = app;
 
 // Configure application
 app.use(cookieParser());

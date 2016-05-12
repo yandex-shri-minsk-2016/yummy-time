@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
 
   actions: {
     send(data, model) {
-       this.get('notifications').sendOrderNotification(data.message, model.order.id)
+      this.get('notifications').sendOrderNotification(data.message, model.order.id);
     }
   }
 });

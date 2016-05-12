@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-
-
 export default Ember.Service.extend({
   socketService: Ember.inject.service('socket-io'),
   session: Ember.inject.service(),
@@ -13,22 +11,22 @@ export default Ember.Service.extend({
   setNotificationCookie: function(orderId) {
     var isCookieExists = this.getIfNotificationCookieSet(orderId);
     if (!isCookieExists) {
-      var oneDay = 1 * 24 * 60 * 60 * 1000;
+      const oneDay = 1 * 24 * 60 * 60 * 1000;
       var date = new Date();
       date.setTime(date.getTime() + oneDay);
-      var expires = "; expires=" + date.toGMTString();
-      document.cookie = 'ROOMS_JOINED_' + orderId + "=" + orderId + expires + "; path=/";
+      var expires = '; expires=' + date.toGMTString();
+      document.cookie = 'ROOMS_JOINED_' + orderId + '=' + orderId + expires + '; path=/';
     }
   },
 
   removeNotificationCookie: function(orderId) {
     var isCookieExists = this.getIfNotificationCookieSet(orderId);
     if (isCookieExists) {
-      var oneDay = 1 * 24 * 60 * 60 * 1000;
+      const oneDay = 1 * 24 * 60 * 60 * 1000;
       var date = new Date();
       date.setTime(date.getTime() - oneDay);
-      var expires = "; expires=" + date.toGMTString();
-      document.cookie = 'ROOMS_JOINED_' + orderId + "=" + expires;
+      var expires = '; expires=' + date.toGMTString();
+      document.cookie = 'ROOMS_JOINED_' + orderId + '=' + expires;
     }
   },
 
@@ -38,10 +36,10 @@ export default Ember.Service.extend({
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
       var cookie = cookies[i];
-      while (cookie.charAt(0) == ' ') {
+      while (cookie.charAt(0) === ' ') {
         cookie = cookie.substring(1);
       }
-      if (cookie.indexOf(name) == 0) {
+      if (cookie.indexOf(name) === 0) {
         return true;
       }
     }
@@ -50,16 +48,16 @@ export default Ember.Service.extend({
 
   getOrdersFromCookies: function() {
     var connectedOrders = [];
-    var name = 'ROOMS_JOINED_';
+    const name = 'ROOMS_JOINED_';
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
       var cookie = cookies[i];
-      while (cookie.charAt(0) == ' ') {
+      while (cookie.charAt(0) === ' ') {
         cookie = cookie.substring(1);
       }
-      if (cookie.indexOf(name) == 0) {
+      if (cookie.indexOf(name) === 0) {
         var cookie = cookie.substring(name.length, cookie.length);
-        var divider = '=';
+        const divider = '=';
         if (cookie.indexOf(divider) > 0) {
           var order = cookie.substring(cookie.indexOf(divider) + 1, cookie.length);
           connectedOrders.push(order);
@@ -93,7 +91,7 @@ export default Ember.Service.extend({
   subscribeNotifications: function() {
     var notification = this;
     var orders = notification.getOrdersFromCookies();
-    orders.forEach(function(item, i, arr) {
+    orders.forEach(function(item) {
       notification.subscribeOrderNotification(item);
     });
   },
@@ -101,18 +99,16 @@ export default Ember.Service.extend({
   subscribeNotificationsOnLogin: function(email) {
     this.joinToPrivateSession(email);
     this.requestUserOrders(email);
-
   },
 
   unsubscribeFromOrderNotifications: function() {
     var socketIO = this.getSocket();
     var notification = this;
     var orders = notification.getOrdersFromCookies();
-    orders.forEach(function(item, i, arr) {
+    orders.forEach(function(item) {
       socketIO.emit('leave', { room: item });
       notification.removeNotificationCookie(item);
     });
-
   },
 
   init: function(email) {
@@ -123,34 +119,35 @@ export default Ember.Service.extend({
     socketIO.on('message', function(data) {
       var options = {
         body: data.msg,
-        icon: 'assets/img/notify-icon.jpg',
-      }
+        icon: 'assets/img/notify-icon.jpg'
+      };
 
-      if (Notification.permission === "granted") {
-        var notification = new Notification('Yummy Time', options);
-        notification.onclick = function(event) {
-          event.preventDefault();
-          notification.close();
+      if ('Notification' in window) {
+        if (Notification.permission === 'granted') {
+          var notification = new Notification('Yummy Time', options);
+          notification.onclick = function(event) {
+            event.preventDefault();
+            notification.close();
+          };
+        } else if (Notification.permission !== 'denied') {
+          Notification.requestPermission(function(permission) {
+            if (permission === 'granted') {
+              var notification = new Notification('Yummy Time', options);
+            }
+          });
         }
-      } else if (Notification.permission !== 'denied') {
-        Notification.requestPermission(function(permission) {
-
-          if (permission === "granted") {
-
-            var notification = new Notification('Yummy Time', options);
-          }
-        });
+      } else {
+        console.log('This browser does not support desktop notification');
       }
     }, this);
 
 
     socketIO.on('orders', function(data) {
       var notification = this;
-      data.orders.forEach(function(orderId, i, arr) {
+      data.orders.forEach(function(orderId) {
         notification.subscribeOrderNotification(orderId);
       });
       socketIO.emit('leave', { room: email });
     }, this);
-
   }
-})
+});

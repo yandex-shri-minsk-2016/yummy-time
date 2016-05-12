@@ -36,9 +36,7 @@ function sendEmail(email, message) {
 
 
 exports.connection = function(io) {
-
   io.sockets.on("connection", function(socket) {
-
     socket.on('join', function(data) {
       socket.join(data.room);
     });
@@ -61,21 +59,20 @@ exports.connection = function(io) {
             model: 'Account'
           }
         })
-        .exec(function(err, a) {
-          a.portions.forEach(function(item, i, arr) {
-
+        .exec(function(err, order) {
+          order.portions.forEach(function(item) {
             var isInList = false;
-            emails.forEach(function(email, i, arr) {
+            emails.forEach(function(email) {
               if (email === item.owner.email) {
                 isInList = true;
               }
             });
             if (!isInList) {
-              emails.push(item.owner.email)
+              emails.push(item.owner.email);
             }
           });
 
-          emails.forEach(function(email, i, arr) {
+          emails.forEach(function(email) {
             sendEmail(email, data.message);
           });
         });
@@ -95,11 +92,10 @@ exports.connection = function(io) {
             model: 'Account'
           }
         })
-        .exec(function(err, a) {
-
-          a.forEach(function(item, i, arr) {
+        .exec(function(err, order) {
+          order.forEach(function(item) {
             var portions = item.portions;
-            for (i = 0; i < portions.length; i++) {
+            for (let i = 0; i < portions.length; i++) {
               if (portions[i].owner !== undefined && portions[i].owner.email === data.email) {
                 orders.push(item.id);
                 break;
@@ -109,8 +105,6 @@ exports.connection = function(io) {
 
           io.sockets.in(data.email).emit('orders', { orders: orders });
         });
-
     });
-
   });
 };
