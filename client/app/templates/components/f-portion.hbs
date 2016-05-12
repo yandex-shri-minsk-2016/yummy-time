@@ -7,17 +7,8 @@
   </div>
 
   <div class="f-default__wrapper">
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{textarea value=text class="f-default__textarea" rows="4" placeholder="Заказ"}}
-      </label>
-    </div>
-
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{input value=cost class="f-default__field" placeholder="Сумма"}}
-      </label>
-    </div>
+    {{b-textarea model=this valuePath='text' rows='4' placeholder='Заказ'}}
+    {{b-input model=this valuePath='cost' placeholder="Сумма"}}
   </div>
 
   <button {{action "submit"}} class="button _submit">Добавить</button>
