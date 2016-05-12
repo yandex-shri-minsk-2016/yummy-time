@@ -1,4 +1,4 @@
-<label class="f-default__label {{if showMessage '_error'}}">
+<label class="f-default__label {{if showMessage (if isInvalid '_error')}}">
   {{ember-selectize content=content
                     optionValuePath=optionValuePath
                     optionLabelPath=optionLabelPath
