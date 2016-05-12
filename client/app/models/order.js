@@ -32,6 +32,6 @@ export default DS.Model.extend({
       this.set('money.available', available - cost);
     }
 
-    this.get('portions').popObject(portion);
+    this.get('portions').removeObject(portion);
   }
 });
