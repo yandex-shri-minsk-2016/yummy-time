@@ -35,9 +35,11 @@ export default Ember.Component.extend({
     toggleAll() {
       const value = this.get('allPaid');
       this.get('portions').forEach((portion) => {
-        portion.set('paid', !value);
-        portion.updateOrderMoney();
-        portion.save();
+        if (portion.get('paid') === value) {
+          portion.set('paid', !value);
+          portion.updateOrderMoney();
+          portion.save();
+        }
       });
     }
   }
