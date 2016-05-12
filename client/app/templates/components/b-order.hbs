@@ -1,34 +1,7 @@
 <div class="b-order">
   <h1 class="b-order__title">Информация о заказе</h1>
 
-  <div class="b-order__description">
-    <div class="b-order__row">
-      <div class="b-order__place">{{order.vendor.title}}</div>
-      <time class="b-order__time">{{order.time}}</time>
-    </div>
-
-    <div class="b-order__row">
-      <div class="b-order__manager b-person">
-        <div class="b-person__name">
-          {{order.manager.displayName}}/{{order.location}}
-        </div>
-      </div>
-      <div class="b-order__money b-order-money">
-        <span class="b-order-money__available">{{order.money.available}}</span>
-        {{#if order.isReady}}
-          <span class="b-order-money__total">{{order.money.total}}</span>
-        {{else}}
-          <span class="b-order-money__total _not-enough"
-                title="Минимальная сумма заказа {{order.money.required}}">
-            {{order.money.total}}
-          </span>
-          <div class="b-order-money__note">
-            Минимальная сумма заказа {{order.money.required}}
-          </div>
-        {{/if}}
-      </div>
-    </div>
-  </div>
+  {{b-order-description order=order}}
 
   <ul class="b-order__content">
     {{#each (group-by "owner.id" portions) as |group|}}
