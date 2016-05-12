@@ -4,6 +4,7 @@ module.exports = function(environment) {
   const ENV = {
     modulePrefix: 'client',
     environment,
+    host: 'http://localhost:3000',
     baseURL: '/',
     locationType: 'auto',
     namespace: '',
