@@ -16,8 +16,8 @@ test('should render group', function(assert) {
   this.set('owner', ownerStub);
   this.render(hbs`{{b-order-group portions=portions owner=owner}}`);
 
-  assert.equal(this.$('.b-order-group__person').text(), 'me');
-  assert.equal(this.$('.b-order-group__phone').text(), 'тел.: hidden');
+  assert.equal(this.$('.b-person__name').text(), 'me');
+  assert.equal(this.$('.b-person__phone').text(), 'hidden');
   assert.equal(this.$('.b-portion').length, 2);
 });
 
