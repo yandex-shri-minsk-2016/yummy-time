@@ -28,12 +28,9 @@ export default Ember.Component.extend(Validations, {
     submit() {
       this.validate().then(({ validations }) => {
         if (validations.get('isValid')) {
-          this.attrs.submit({
-            email: this.get('email'),
-            name: this.get('name'),
-            password: this.get('password'),
-            phone: this.get('phone')
-          });
+          this.attrs.submit(
+            this.getProperties('email', 'name', 'password', 'phone')
+          );
         }
         this.set('didValidate', true);
       });
