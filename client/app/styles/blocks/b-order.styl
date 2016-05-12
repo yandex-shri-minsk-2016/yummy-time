@@ -1,6 +1,5 @@
 .b-order
   color $c-light
-  max-width 420px
   margin 0 auto
 
   &__description
@@ -10,17 +9,17 @@
     margin-bottom 20px
 
   &__title
-    font-size 2.2rem
-    font-weight 700
+    font-size $h1-font-size
     text-align center
     margin-bottom 20px
 
-  &__info
-    display: flex
+  &__place
+  &__time
+    font-size $h2-font-size
 
-    &:not(:first-child)
-      margin-top: 10px
-      border-top: 1px solid rgba($bs-dark,.5)
+  &__manager
+  &__money
+    font-size: $h4-font-size
 
   &__row
     display flex

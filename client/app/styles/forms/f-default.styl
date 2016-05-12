@@ -1,6 +1,5 @@
 .f-default
   color $c-light
-  max-width 420px
   margin 0 auto 20px
 
   &__wrapper
@@ -22,15 +21,14 @@
         border-top 1px solid rgba($bg-dark,.33)
 
   &__title
-    font-size 2.2rem
-    font-weight 700
+    font-size $h1-font-size
     text-align center
     margin-bottom 20px
 
   &__label
     font-weight 700
     color $c-dark
-    font-size 1.4rem
+    font-size $h5-font-size
     margin-bottom 4px
     display block
 
@@ -46,7 +44,7 @@
     border none
     padding 0 10px
     height 3.6rem
-    font-size 1.4rem
+    font-size $h5-font-size
     color $c-dark
     background transparent
 
@@ -54,7 +52,7 @@
       outline none
 
     &::placeholder
-      font-size 1.4rem
+      font-size $h5-font-size
       color rgba($c-dark,.33)
 
   &__textarea
@@ -63,12 +61,12 @@
     border none
     padding 5px 10px
     resize none
-    font-size 1.4rem
+    font-size $h5-font-size
 
     &:focus
       outline none
 
     &::placeholder
-      font-size 1.4rem
+      font-size $h5-font-size
       color rgba($c-dark,.33)
 
