@@ -15,5 +15,8 @@
     </div>
   </div>
 
-  <button {{action "submit"}} type="submit" class="button _submit">Войти</button>
+  <button {{action "submit"}} type="submit"
+          class="button _submit f-login__button">Войти</button>
+
+  {{#link-to 'register' class="f-login__link"}}Зарегистрироваться{{/link-to}}
 </form>
