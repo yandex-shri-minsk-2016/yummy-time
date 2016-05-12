@@ -1,14 +1,15 @@
 import Ember from 'ember';
 import { validator, buildValidations } from 'ember-cp-validations';
+import messages from '../validators/custom-messages';
 
 const Validations = buildValidations({
   identification: {
     validators: [validator('presence', true)],
-    message: 'Введите логин'
+    message: messages.emptyLogin
   },
   password: {
     validators: [validator('presence', true)],
-    message: 'Введите пароль'
+    message: messages.emptyPassword
   }
 });
 
