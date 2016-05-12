@@ -2,29 +2,10 @@
   <h2 class="f-default__title">Регистрация</h2>
 
   <div class="f-default__wrapper">
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{input value=name class="f-default__field" placeholder="Name"}}
-      </label>
-    </div>
-
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{input value=email class="f-default__field" placeholder="E-mail"}}
-      </label>
-    </div>
-
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{input value=password class="f-default__field" placeholder="Password"}}
-      </label>
-    </div>
-
-    <div class="f-default__row">
-      <label class="f-default__label">
-        {{input value=phone class="f-default__field" placeholder="Phone"}}
-      </label>
-    </div>
+    {{b-input model=this valuePath='name' placeholder="Name"}}
+    {{b-input model=this valuePath='email' placeholder="E-mail"}}
+    {{b-input model=this valuePath='password' placeholder="Password"}}
+    {{b-input model=this valuePath='phone' placeholder="Phone"}}
   </div>
 
   <button {{action "submit"}} type="submit" class="button _submit">Отправить</button>
