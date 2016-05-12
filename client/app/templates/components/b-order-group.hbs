@@ -1,8 +1,8 @@
 <div class="b-order-group__wrapper">
   <div class="b-order-group__row">
-    <div class="b-order-group__person">
-      <span class="b-order-group__person-name">{{owner.displayName}}</span>
-      <span class="b-order-group__person-phone">{{owner.phone}}</span>
+    <div class="b-order-group__person b-person">
+      <span class="b-person__name">{{owner.displayName}}</span>
+      <span class="b-person__phone">{{owner.phone}}</span>
     </div>
     {{b-checkbox class="b-order-group__checkbox" checked=allPaid onchange=(action 'toggleAll') }}
   </div>
