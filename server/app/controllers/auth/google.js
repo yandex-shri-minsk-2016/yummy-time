@@ -9,8 +9,8 @@ const Account = require('../../models/account');
 const config = require('../../../config/config');
 
 const oauth2Client = new OAuth2(config.google.clientID,
-                              config.google.clientSecret,
-                              config.google.callbackURL);
+                                config.google.clientSecret,
+                                config.google.callbackURL);
 
 function createAccessToken(account) {
   return {
