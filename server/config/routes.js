@@ -11,7 +11,10 @@ const auth = require('../app/controllers/auth');
 
 module.exports = function applyRoutes(app) {
   app.get('/', main.index);
+
   app.post('/auth/token', auth.token);
+  app.post('/auth/google-oauth2', auth.google.callback);
+
   app.get('/:type(orders|accounts|portions|vendors)', passport.authenticate('jwt'), api);
   app.get('/:type(orders|accounts|portions|vendors)/:id', passport.authenticate('jwt'), api);
   app.patch('/:type(orders|portions)/:id', passport.authenticate('jwt'), api);
