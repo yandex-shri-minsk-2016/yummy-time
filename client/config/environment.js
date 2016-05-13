@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment,
     baseURL: '/',
     locationType: 'auto',
+    namespace: '',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -43,7 +44,6 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -54,6 +54,17 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.namespace = 'api/v1';
+
+    ENV['ember-simple-auth-token'] = {
+      serverTokenEndpoint: `${ENV.namespace}/auth/token`,
+      authorizationPrefix: 'JWT ',
+      identificationField: 'email',
+      passwordField: 'password'
+    };
+
+    // eslint-disable-next-line no-console
+    console.log(`API Namespace: ${ENV.namespace}`);
     // eslint-disable-next-line no-console
     console.log('prod');
   }
