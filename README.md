@@ -46,3 +46,9 @@
   npm run build       # => development
   npm run build-prod  # => production
   ```
+
+- Deploy application to Heroku:
+
+  ```sh
+  npm run deploy
+  ```
