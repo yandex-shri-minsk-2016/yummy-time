@@ -9,26 +9,25 @@ const Portion = require('../models/portion');
 
 
 function sendEmail(email, message) {
+  const transporter = nodemailer.createTransport(config.smtp);
 
-  var transporter = nodemailer.createTransport(config.smtp);
-
-  var mailOptions = {
-    from: 'yummytime.test@gmail.com',
+  const mailOptions = {
+    from: config.systemEmail,
     to: email,
     subject: 'Notification',
     text: message
   };
 
-  transporter.verify(function(error, success) {
+  transporter.verify(error => {
     if (error) {
       console.log(error);
     } else {
-      transporter.sendMail(mailOptions, function(error, info) {
+      transporter.sendMail(mailOptions, (sendError, info) => {
         if (error) {
-          console.log(error);
+          console.log(sendError);
         } else {
-          console.log('Message sent: ' + info.response);
-        };
+          console.log(`Message sent: ${info.response}`);
+        }
       });
     }
   });
@@ -36,19 +35,19 @@ function sendEmail(email, message) {
 
 
 exports.connection = function(io) {
-  io.sockets.on("connection", function(socket) {
-    socket.on('join', function(data) {
+  io.sockets.on('connection', socket => {
+    socket.on('join', data => {
       socket.join(data.room);
     });
 
-    socket.on('leave', function(data) {
+    socket.on('leave', data => {
       socket.leave(data.room);
     });
 
-    socket.on('sendMessage', function(data) {
+    socket.on('sendMessage', data => {
       socket.broadcast.to(data.order).emit('message', { msg: data.message });
 
-      var emails = [];
+      const emails = [];
       Order
         .findById(data.order)
         .populate({
@@ -59,10 +58,10 @@ exports.connection = function(io) {
             model: 'Account'
           }
         })
-        .exec(function(err, order) {
-          order.portions.forEach(function(item) {
-            var isInList = false;
-            emails.forEach(function(email) {
+        .exec((err, order) => {
+          order.portions.forEach(item => {
+            let isInList = false;
+            emails.forEach(email => {
               if (email === item.owner.email) {
                 isInList = true;
               }
@@ -72,16 +71,15 @@ exports.connection = function(io) {
             }
           });
 
-          emails.forEach(function(email) {
+          emails.forEach(email => {
             sendEmail(email, data.message);
           });
         });
-
     });
 
 
-    socket.on('getOrders', function(data) {
-      var orders = [];
+    socket.on('getOrders', data => {
+      const orders = [];
       Order
         .find()
         .populate({
@@ -92,9 +90,9 @@ exports.connection = function(io) {
             model: 'Account'
           }
         })
-        .exec(function(err, order) {
-          order.forEach(function(item) {
-            var portions = item.portions;
+        .exec((err, order) => {
+          order.forEach(item => {
+            const portions = item.portions;
             for (let i = 0; i < portions.length; i++) {
               if (portions[i].owner !== undefined && portions[i].owner.email === data.email) {
                 orders.push(item.id);
@@ -103,7 +101,7 @@ exports.connection = function(io) {
             }
           });
 
-          io.sockets.in(data.email).emit('orders', { orders: orders });
+          io.sockets.in(data.email).emit('orders', { orders });
         });
     });
   });
