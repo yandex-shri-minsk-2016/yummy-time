@@ -74,6 +74,8 @@ module.exports = function(environment) {
       passwordField: 'password'
     };
 
+    ENV.torii.providers['google-oauth2'].redirectUri = 'https://yummy-time.herokuapp.com';
+
     // eslint-disable-next-line no-console
     console.log(`API Namespace: ${ENV.namespace}`);
     // eslint-disable-next-line no-console
