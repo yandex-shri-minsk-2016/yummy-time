@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PROJ=$(pwd)
 
@@ -7,7 +7,7 @@ cd tmp
 
 TMPD=$(pwd)
 
-if [ $TMPD == $PROJ ]; then
+if [[ $TMPD == $PROJ ]]; then
   echo 'Failed to change the directory'
   exit 1
 fi
