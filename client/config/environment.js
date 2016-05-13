@@ -68,14 +68,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.host = 'https://yummy-time.herokuapp.com';
     ENV.namespace = '/api/v1';
-
-    ENV['ember-simple-auth-token'] = {
-      serverTokenEndpoint: `${ENV.namespace}/auth/token`,
-      authorizationPrefix: 'JWT ',
-      identificationField: 'email',
-      passwordField: 'password'
-    };
-
+    ENV['ember-simple-auth-token'].serverTokenEndpoint = `${ENV.namespace}/auth/token`;
     ENV.torii.providers['google-oauth2'].redirectUri = ENV.host;
 
     // eslint-disable-next-line no-console
