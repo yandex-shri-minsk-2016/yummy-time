@@ -24,7 +24,7 @@ module.exports = function(environment) {
   };
 
   ENV['ember-simple-auth-token'] = {
-    serverTokenEndpoint: '/auth/token',
+    serverTokenEndpoint: 'api/v1/auth/token',
     authorizationPrefix: 'JWT ',
     identificationField: 'email',
     passwordField: 'password'
