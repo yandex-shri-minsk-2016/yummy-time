@@ -1,42 +1,31 @@
 #!/bin/bash
 
-PROJ=$MYPROJ
+PROJ=$(pwd)
 
-cd $PROJ
 mkdir tmp
-
 cd tmp
-INNER=$(pwd)
 
-if [ $INNER == $PROJ ]; then
-  echo $PROJ
-  echo $INNER
+TMPD=$(pwd)
+
+if [ $TMPD == $PROJ ]; then
   echo 'Failed to change the directory'
   exit 1
 fi
 
 rm -rf client/
-echo | pwd
-
 mkdir client
 
-cd $PROJ
+CLIENT=$PROJ/client
+TMPCLIENT=$TMPD/client
 
-cp -rf ./client/app tmp/client/app
-cp -rf ./client/config tmp/client/config
-cp -rf ./client/public tmp/client/public
-cp -f ./client/ember-cli-build.js tmp/client/
-cp -f ./client/bower.json tmp/client/
-cp -f ./client/package.json tmp/client/
+cp -rf $CLIENT/app $TMPCLIENT/app
+cp -rf $CLIENT/config $TMPCLIENT/config
+cp -rf $CLIENT/public $TMPCLIENT/public
+cp -f $CLIENT/ember-cli-build.js $TMPCLIENT
+cp -f $CLIENT/bower.json $TMPCLIENT
+cp -f $CLIENT/package.json $TMPCLIENT
 
-cd $PROJ/tmp/client/
-
-if [ $INNER == $PROJ ]; then
-  echo $PROJ
-  echo $INNER
-  echo 'Failed to change the directory'
-  exit 1
-fi
+cd $TMPCLIENT
 
 git init
 git add --all

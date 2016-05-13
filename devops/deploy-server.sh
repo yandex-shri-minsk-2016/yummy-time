@@ -1,16 +1,13 @@
 #!/bin/bash
 
-PROJ=$MYPROJ
+PROJ=$(pwd)
 
-cd $PROJ
 mkdir tmp
-
 cd tmp
-INNER=$(pwd)
 
-if [ $INNER == $PROJ ]; then
-  echo $PROJ
-  echo $INNER
+TMPD=$(pwd)
+
+if [ $TMPD == $PROJ ]; then
   echo 'Failed to change the directory'
   exit 1
 fi
@@ -18,20 +15,15 @@ fi
 rm -rf server/
 mkdir server
 
-cd $PROJ
-cp -rf ./server/app tmp/server/app
-cp -rf ./server/config tmp/server/config
-cp -rf ./server/index.js tmp/server/index.js
-cp -rf ./server/package.json tmp/server/package.json
+SERVER=$PROJ/server
+TMPSERVER=$TMPD/server
 
-cd $PROJ/tmp/server/
+cp -rf $SERVER/app $TMPSERVER/app
+cp -rf $SERVER/config $TMPSERVER/config
+cp -rf $SERVER/index.js $TMPSERVER
+cp -rf $SERVER/package.json $TMPSERVER
 
-if [ $INNER == $PROJ ]; then
-  echo $PROJ
-  echo $INNER
-  echo 'Failed to change the directory'
-  exit 1
-fi
+cd $TMPSERVER
 
 git init
 git add --all
