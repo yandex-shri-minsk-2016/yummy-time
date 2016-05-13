@@ -31,6 +31,17 @@ module.exports = function(environment) {
     passwordField: 'password'
   };
 
+  ENV.torii = {
+    sessionServiceName: 'session',
+    providers: {
+      'google-oauth2': {
+        apiKey: '1071029381615-tucu38j7kboh2kk4f8tj9br832gihl03.apps.googleusercontent.com',
+        redirectUri: 'http://127.0.0.1:4200',
+        accessType: 'offline'
+      }
+    }
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

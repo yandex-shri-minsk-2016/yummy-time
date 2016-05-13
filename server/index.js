@@ -3,6 +3,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 const passport = require('passport');
 
 const config = require('./config/config');
@@ -32,6 +34,8 @@ connect()
 module.exports = app;
 
 // Configure application
+app.use(cookieParser());
+app.use(cookieSession({ secret: config.secret }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 require('./config/logger')(app);
