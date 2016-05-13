@@ -65,7 +65,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.namespace = 'api/v1';
+    ENV.namespace = '/api/v1';
 
     ENV['ember-simple-auth-token'] = {
       serverTokenEndpoint: `${ENV.namespace}/auth/token`,
