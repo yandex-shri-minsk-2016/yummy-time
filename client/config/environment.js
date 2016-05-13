@@ -66,6 +66,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.host = 'https://yummy-time.herokuapp.com';
     ENV.namespace = '/api/v1';
 
     ENV['ember-simple-auth-token'] = {
@@ -75,7 +76,7 @@ module.exports = function(environment) {
       passwordField: 'password'
     };
 
-    ENV.torii.providers['google-oauth2'].redirectUri = 'https://yummy-time.herokuapp.com';
+    ENV.torii.providers['google-oauth2'].redirectUri = ENV.host;
 
     // eslint-disable-next-line no-console
     console.log(`API Namespace: ${ENV.namespace}`);
