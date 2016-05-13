@@ -3,6 +3,7 @@
 module.exports = {
   db: 'mongodb://localhost/example',
   port: process.env.PORT || 3000,
+  originURL: 'http://127.0.0.1:4200',
   secret: 'secret',
   google: {
     // eslint-disable-next-line max-len
