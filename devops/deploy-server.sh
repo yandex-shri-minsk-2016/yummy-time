@@ -35,7 +35,7 @@ fi
 
 git init
 git add --all
-git cm 'Deploy Server'
+git commit -m 'Deploy Server'
 git remote add server 'https://git.heroku.com/yummy-server.git'
 git push server master --force
 

@@ -40,7 +40,7 @@ fi
 
 git init
 git add --all
-git cm 'Deploy Client'
+git commit -m 'Deploy Client'
 git remote add client 'https://git.heroku.com/yummy-time.git'
 git push client master --force
 
