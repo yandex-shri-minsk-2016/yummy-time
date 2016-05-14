@@ -13,7 +13,9 @@
     <button {{action "toggleActiveState"}} class="button _submit">
       {{#if order.active}}Перейти к оформлению{{else}}Отменить заказ{{/if}}
     </button>
-    <button class="button _submit">Уведомить пользователей</button>
+    {{#link-to 'checkout' order.id class="button _submit"}}
+      Уведомить пользователей
+    {{/link-to}}
   </div>
 </div>
 
