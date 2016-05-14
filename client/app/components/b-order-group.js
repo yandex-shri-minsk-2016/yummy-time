@@ -15,10 +15,10 @@ export default Ember.Component.extend({
     const order = this.get('order');
 
     if (order.get('active')) {
-      return (currentAccountId === this.get('order.manager.id'));
-    } else {
-      return false;
+      return (currentAccountId === this.get('order.manager.id')) ||
+             (currentAccountId === this.get('owner.id'));
     }
+    return false;
   }),
 
   allPaid: Ember.computed('portions.@each.paid', function() {
