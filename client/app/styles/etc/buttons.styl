@@ -14,6 +14,7 @@
 
   &:hover
     box-shadow 1px 1px 8px 0 rgba($bs-dark,.5)
+    background rgba($bg-action,.66)
 
   &._submit
     border-radius 3px
@@ -22,7 +23,7 @@
     text-decoration none
 
     &:hover
-      background rgba($bg-action,.95)
+      background rgba($bg-action,.66)
 
 .btn-menu
   position relative
@@ -69,6 +70,10 @@
   bottom -60px
   background $bg-action
   display block
+  transition opacity .2s ease-out
+
+  &:hover
+    opacity .75
 
   &:before
   &:after
