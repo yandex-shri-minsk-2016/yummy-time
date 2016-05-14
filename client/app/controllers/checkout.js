@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  notifications: Ember.inject.service('notifications'),
+  notifications: Ember.inject.service(),
 
   actions: {
     send(data, model) {

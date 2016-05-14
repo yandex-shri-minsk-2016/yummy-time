@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
-  notifications: Ember.inject.service('notifications'),
+  notifications: Ember.inject.service(),
 
   actions: {
     addToOrder(order, account, attrs) {

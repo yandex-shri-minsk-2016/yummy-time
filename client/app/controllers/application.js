@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  session: Ember.inject.service('session'),
-  notifications: Ember.inject.service('notifications'),
+  session: Ember.inject.service(),
+  notifications: Ember.inject.service(),
   open: false,
 
   openClass: Ember.computed('open', function() {

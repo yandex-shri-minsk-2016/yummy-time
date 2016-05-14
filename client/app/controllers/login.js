@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  session: Ember.inject.service('session'),
+  session: Ember.inject.service(),
   torii: Ember.inject.service(),
-  notifications: Ember.inject.service('notifications'),
+  notifications: Ember.inject.service(),
 
   actions: {
     authenticateVia(provider) {
