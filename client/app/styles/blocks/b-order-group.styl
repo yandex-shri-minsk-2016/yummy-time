@@ -20,7 +20,20 @@
   &__summary
     padding 15px 15px 15px 10px
     background $bg-light
+    position relative
     display none
+
+    &:before
+      content ''
+      display block
+      position absolute
+      height 1px
+      left 0
+      right 0
+      top 0
+      margin 0 auto
+      width calc(100% - 20px)
+      background $grD
 
   &__row
     display flex
