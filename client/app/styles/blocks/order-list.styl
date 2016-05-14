@@ -14,6 +14,9 @@
     &::-webkit-scrollbar-thumb:window-inactive
       background $bg-primary
 
+  @media $max767portrait
+    max-height calc(100vh - 185px)
+
   &__item
     box-shadow 1px 1px 5px 0 rgba($bs-dark,.5)
     background $bg-light
