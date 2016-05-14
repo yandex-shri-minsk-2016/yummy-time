@@ -46,15 +46,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require('./config/cors')(app);
 require('./config/logger')(app);
 require('./config/passport')(app, passport);
+require('./config/cors')(app);
 
-// headers to connect to client
-app.all('*', function(req, res, next) {
- res.header("Access-Control-Allow-Origin", config.clientPort);
- res.header("Access-Control-Allow-Headers", "X-Requested-With");
- res.header('Access-Control-Allow-Headers', 'Content-Type');
- res.header('Access-Control-Allow-Credentials', 'true');
- next();
-});
 
 notification.connection(io);
 

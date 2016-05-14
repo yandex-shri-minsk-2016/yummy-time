@@ -1,11 +1,8 @@
 'use strict';
 
 const nodemailer = require('nodemailer');
-const config = require('../../config/config');
-const mongoose = require('mongoose');
 const Order = require('../models/order');
-const Account = require('../models/account');
-const Portion = require('../models/portion');
+const config = require('../../config/config');
 
 
 function sendEmail(email, message) {
