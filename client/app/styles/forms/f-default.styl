@@ -22,9 +22,10 @@
     color $c-dark
     font-size $h5-font-size
     display block
-    border-bottom 1px solid rgba($bg-dark,.33)
     &._error
-      border-bottom 1px solid $err-line
+      .f-default__field
+      .f-default__textarea
+        border-bottom 1px solid $err-line
 
   &__error
     float left
@@ -41,9 +42,11 @@
     font-size $h5-font-size
     color $c-dark
     background transparent
+    border-bottom 1px solid rgba($bg-dark,.33)
 
     &:focus
       outline none
+      border-bottom-color $bg-primary
 
     &::placeholder
       font-size $h5-font-size
@@ -56,9 +59,11 @@
     padding 5px 10px
     resize none
     font-size $h5-font-size
+    border-bottom 1px solid rgba($bg-dark,.33)
 
     &:focus
       outline none
+      border-bottom-color $bg-primary
 
     &::placeholder
       font-size $h5-font-size
