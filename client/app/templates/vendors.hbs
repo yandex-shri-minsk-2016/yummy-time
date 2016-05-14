@@ -1,8 +1,11 @@
 <ul class="vendors">
   {{#each model as |vendor|}}
     <li class="vendors__item">
-      {{vendor.title}}
-      <a href="{{vendor.url}}" _target="blank"
+      <div class="vendors__info">
+        <span class="vendors__title">{{vendor.title}}</span>
+        <span class="vendors__cost">Минимальная сумма заказа 100 000</span>
+      </div>
+      <a href="{{vendor.url}}" target="_blank"
          class="vendors__link">{{vendor.url}}</a>
     </li>
   {{/each}}
