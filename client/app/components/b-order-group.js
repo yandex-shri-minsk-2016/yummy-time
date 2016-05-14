@@ -32,6 +32,16 @@ export default Ember.Component.extend({
   },
 
   actions: {
+    removeAll() {
+      const order = this.get('order');
+      this.get('portions').forEach((portion) => {
+        order.removePortion(portion);
+        portion.set('deleted', true);
+        portion.save();
+      });
+      order.save();
+    },
+
     toggleAll() {
       const value = this.get('allPaid');
       this.get('portions').forEach((portion) => {

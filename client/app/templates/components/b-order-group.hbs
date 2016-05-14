@@ -1,7 +1,7 @@
 <div class="b-order-group__wrapper">
   <div class="b-order-group__row">
 
-    <button class="b-order-group__remove-btn"></button>
+    <button {{action 'removeAll'}} class="b-order-group__remove-btn"></button>
     <div class="b-order-group__person b-person">
       <span class="b-person__name">{{owner.displayName}}</span>
       <span class="b-person__phone">{{owner.phone}}</span>
