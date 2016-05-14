@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
     createVendor(attrs) {
       const vendor = this.store.createRecord('vendor', attrs);
       vendor.save();
-      this.transitionToRoute('index');
+      this.transitionToRoute('vendors');
     }
   }
 });
