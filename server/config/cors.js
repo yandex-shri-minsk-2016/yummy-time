@@ -7,6 +7,7 @@ module.exports = function cors(app) {
     res.header('Access-Control-Allow-Headers',
                'Content-Type,Content-Length,X-Requested-With,Authorization');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+    res.header('Access-Control-Allow-Credentials', 'true');
     next();
   });
 };

@@ -43,7 +43,8 @@
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.1",
     "phantomjs-prebuilt": "^2.1.7",
-    "torii": "^0.8.0"
+    "torii": "^0.8.0",
+    "ember-websockets": "3.0.0"
   },
   "dependencies": {
     "ember-cli-selectize": "^0.5.2",

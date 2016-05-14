@@ -4,9 +4,11 @@ import BodyClassMixin from 'ember-body-class/mixins/body-class';
 
 export default Ember.Route.extend(ApplicationRouteMixin, BodyClassMixin, {
   session: Ember.inject.service(),
+  notifications: Ember.inject.service(),
 
   beforeModel() {
     this.get('session').loadCurrentAccount();
+    this.get('notifications').subscribeNotifications();
   },
 
   renderTemplate() {
