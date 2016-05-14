@@ -2,7 +2,7 @@
 const config = require('./config');
 
 module.exports = function cors(app) {
-  app.all('*', (req, res, next) => {
+  app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', config.originURL);
     res.header('Access-Control-Allow-Headers',
                'Content-Type,Content-Length,X-Requested-With,Authorization');

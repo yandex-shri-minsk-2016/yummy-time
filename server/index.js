@@ -14,7 +14,6 @@ const app = express();
 const server = http.createServer(app);
 const io = require('socket.io').listen(server);
 
-
 function connect(options) {
   return mongoose.connect(config.db, options).connection;
 }
@@ -46,11 +45,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require('./config/cors')(app);
 require('./config/logger')(app);
 require('./config/passport')(app, passport);
-require('./config/cors')(app);
-
 
 notification.connection(io);
-
 
 // Bootstrap routes
 require('./config/routes')(app);
