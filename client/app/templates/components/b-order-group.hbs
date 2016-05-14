@@ -1,7 +1,11 @@
 <div class="b-order-group__wrapper">
   <div class="b-order-group__row">
 
-    <button {{action 'removeAll'}} class="b-order-group__remove-btn"></button>
+    {{#if canDelete}}
+      <button {{action 'removeAll'}} class="b-order-group__remove-btn"></button>
+    {{else}}
+      <button class="b-order-group__remove-btn _disabled"></button>
+    {{/if}}
     <div class="b-order-group__person b-person">
       <span class="b-person__name">{{owner.displayName}}</span>
       <span class="b-person__phone">{{owner.phone}}</span>
@@ -14,6 +18,6 @@
 
 <ul class="b-order-group__summary">
   {{#each portions as |portion|}}
-    {{b-portion portion=portion isManager=isManager}}
+    {{b-portion portion=portion isManager=isManager canDelete=canDelete}}
   {{/each}}
 </ul>

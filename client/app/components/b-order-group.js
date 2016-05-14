@@ -10,6 +10,17 @@ export default Ember.Component.extend({
     return this.get('session.account.id') !== this.get('order.manager.id');
   }),
 
+  canDelete: Ember.computed('order.active', function() {
+    const currentAccountId = this.get('session.account.id');
+    const order = this.get('order');
+
+    if (order.get('active')) {
+      return (currentAccountId === this.get('order.manager.id'));
+    } else {
+      return false;
+    }
+  }),
+
   allPaid: Ember.computed('portions.@each.paid', function() {
     return this.get('portions').isEvery('paid', true);
   }),
