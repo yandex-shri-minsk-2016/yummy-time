@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
       });
 
       this.get('notifications').subscribeOrderNotification(order.id);
-      this.transitionToRoute('orders');
+      this.transitionToRoute('order', order.id);
     }
   }
 });
