@@ -32,14 +32,24 @@ export default Ember.Component.extend({
   },
 
   actions: {
+    removeAll() {
+      const order = this.get('order');
+      this.get('portions').forEach((portion) => {
+        order.removePortion(portion);
+        portion.set('deleted', true);
+        portion.save();
+      });
+      order.save();
+    },
+
     toggleAll() {
       const value = this.get('allPaid');
       this.get('portions').forEach((portion) => {
-        if (portion.get('paid') !== value) { return; }
-
-        portion.set('paid', !value);
-        portion.updateOrderMoney();
-        portion.save();
+        if (portion.get('paid') === value) {
+          portion.set('paid', !value);
+          portion.updateOrderMoney();
+          portion.save();
+        }
       });
     }
   }
