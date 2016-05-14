@@ -9,7 +9,8 @@ export default Ember.Component.extend({
       portion.get('order').then((order) => {
         order.removePortion(portion);
         order.save().then(() => {
-          portion.destroyRecord();
+          portion.set('deleted', true);
+          portion.save();
         });
       });
     },
