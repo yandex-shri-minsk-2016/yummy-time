@@ -1,12 +1,10 @@
 <div class="b-portion__row">
+
+  <button class="b-portion__remove-btn" {{action 'remove' portion}}></button>
   <div class="b-portion__text">
     {{portion.text}}
-    <button {{action 'remove' portion}}>×</button>
   </div>
+    <div class="b-portion__cost">{{portion.cost}}</div>
   {{b-checkbox checked=portion.paid disabled=isManager
                onchange=(action 'togglePaid' portion)}}
-</div>
-
-<div class="b-portion__row">
-  <div class="b-portion__cost">{{portion.cost}}</div>
 </div>

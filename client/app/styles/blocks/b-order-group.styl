@@ -17,18 +17,29 @@
     font-size $h3-font-size
 
   &__summary
-    padding: 15px
-    background: $bg-light;
-    display: none
+    padding 15px 15px 15px 8px
+    background $bg-light
+    display none
 
   &__row
     display flex
     justify-content space-between
+    align-items center
 
     &:not(:first-child)
-      margin-top: 5px
+      margin-top 5px
 
   &__checkbox
     width 30px
     height 30px
+    position relative
+    margin-right: 1px
+
+    .checkbox__text
+      position absolute
+      left 0
+      top 0
+      right 0
+      bottom 0
+      margin auto
 
