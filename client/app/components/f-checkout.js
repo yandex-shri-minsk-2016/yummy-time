@@ -1,22 +1,27 @@
 import Ember from 'ember';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-export default Ember.Component.extend({
+const Validations = buildValidations({
+  message: {
+    validators: [validator('presence', true)]
+  }
+});
+
+export default Ember.Component.extend(Validations, {
   session: Ember.inject.service(),
-  order: Ember.computed.alias('model.order'),
+  didValidate: false,
 
   actions: {
-    toggleActiveState() {
-      const order = this.get('order');
-      order.toggleProperty('active');
-      order.save();
-    },
-
-    msg() {
-      this.attrs.msg(
-        this.getProperties('message'),
-        this.get('model')
-        );
+    submit() {
+      this.validate().then(({ validations }) => {
+        if (validations.get('isValid')) {
+          this.attrs.submit(
+            this.getProperties('message'),
+            this.get('order')
+          );
+        }
+        this.set('didValidate', true);
+      });
     }
   }
-
 });
