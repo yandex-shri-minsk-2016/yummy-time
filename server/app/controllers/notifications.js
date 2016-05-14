@@ -17,12 +17,15 @@ function sendEmail(email, message) {
 
   transporter.verify(error => {
     if (error) {
+      // eslint-disable-next-line no-console
       console.log(error);
     } else {
       transporter.sendMail(mailOptions, (sendError, info) => {
         if (error) {
+          // eslint-disable-next-line no-console
           console.log(sendError);
         } else {
+          // eslint-disable-next-line no-console
           console.log(`Message sent: ${info.response}`);
         }
       });
