@@ -8,7 +8,7 @@
 
   <div class="f-default__wrapper">
     {{b-textarea model=this valuePath='text' rows='4' placeholder='Заказ'}}
-    {{b-input model=this valuePath='cost' placeholder="Сумма"}}
+    {{b-input model=this type='tel' valuePath='cost' placeholder="Сумма"}}
   </div>
 
   <button {{action "submit"}} class="button _submit">Добавить</button>
