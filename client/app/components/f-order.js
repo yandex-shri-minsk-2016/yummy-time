@@ -3,21 +3,13 @@ import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
   vendor: {
-    validators: [validator('presence', true)],
-    message: 'Обязательное поле'
+    validators: [validator('presence', true)]
   },
   location: {
-    debounce: 200,
-    validators: [
-      validator('presence', {
-        presence: true,
-        message: 'Обязательное поле'
-      })
-    ]
+    validators: [validator('presence', true)]
   },
   time: {
-    validators: [validator('presence', true)],
-    message: 'Обязательное поле'
+    validators: [validator('presence', true)]
   }
 });
 
