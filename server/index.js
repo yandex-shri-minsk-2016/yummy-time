@@ -38,6 +38,7 @@ app.use(cookieParser());
 app.use(cookieSession({ secret: config.secret }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+require('./config/cors')(app);
 require('./config/logger')(app);
 require('./config/passport')(app, passport);
 

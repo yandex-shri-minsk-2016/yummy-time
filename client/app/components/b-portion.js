@@ -5,6 +5,15 @@ export default Ember.Component.extend({
   classNames: ['b-portion'],
 
   actions: {
+    remove(portion) {
+      portion.get('order').then((order) => {
+        order.removePortion(portion);
+        order.save().then(() => {
+          portion.destroyRecord();
+        });
+      });
+    },
+
     togglePaid(portion) {
       portion.toggleProperty('paid');
       portion.updateOrderMoney();

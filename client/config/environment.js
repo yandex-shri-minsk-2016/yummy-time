@@ -4,6 +4,7 @@ module.exports = function(environment) {
   const ENV = {
     modulePrefix: 'client',
     environment,
+    host: 'http://localhost:3000',
     baseURL: '/',
     locationType: 'auto',
     namespace: '',
@@ -25,7 +26,7 @@ module.exports = function(environment) {
   };
 
   ENV['ember-simple-auth-token'] = {
-    serverTokenEndpoint: '/auth/token',
+    serverTokenEndpoint: `${ENV.host}/auth/token`,
     authorizationPrefix: 'JWT ',
     identificationField: 'email',
     passwordField: 'password'
@@ -65,16 +66,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.host = 'https://yummy-time.herokuapp.com';
     ENV.namespace = '/api/v1';
-
-    ENV['ember-simple-auth-token'] = {
-      serverTokenEndpoint: `${ENV.namespace}/auth/token`,
-      authorizationPrefix: 'JWT ',
-      identificationField: 'email',
-      passwordField: 'password'
-    };
-
-    ENV.torii.providers['google-oauth2'].redirectUri = 'https://yummy-time.herokuapp.com';
+    ENV['ember-simple-auth-token'].serverTokenEndpoint = `${ENV.namespace}/auth/token`;
+    ENV.torii.providers['google-oauth2'].redirectUri = ENV.host;
 
     // eslint-disable-next-line no-console
     console.log(`API Namespace: ${ENV.namespace}`);

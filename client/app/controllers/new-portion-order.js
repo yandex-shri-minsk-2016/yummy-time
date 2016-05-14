@@ -15,14 +15,10 @@ export default Ember.Controller.extend({
       }
 
       portion.save().then(() => {
-        const total = order.get('money.total') + portion.get('cost');
-        order.set('money.total', total);
-        order.get('portions').pushObject(portion);
-
+        order.addPortion(portion);
         if (isManager) {
           portion.updateOrderMoney();
         }
-
         order.save();
       });
 
