@@ -1,11 +1,12 @@
 import Ember from 'ember';
+import ENV from '../config/environment';
 
 export default Ember.Service.extend({
   socketService: Ember.inject.service('socket-io'),
   session: Ember.inject.service(),
 
   getSocket() {
-    return this.get('socketService').socketFor('http://localhost:3000/');
+    return this.get('socketService').socketFor(ENV.host);
   },
 
   setNotificationCookie(orderId) {
