@@ -6,8 +6,10 @@ export default Ember.Component.extend({
   tagName: 'li',
   classNames: ['b-order-group'],
 
-  isManager: Ember.computed(function() {
-    return this.get('session.account.id') !== this.get('order.manager.id');
+  isManager: Ember.computed('session.account.id', function() {
+    const currentAccountId = this.get('session.account.id');
+    const orderManagerId = this.get('order.manager.id');
+    return (currentAccountId !== orderManagerId);
   }),
 
   canDelete: Ember.computed('order.active', function() {
