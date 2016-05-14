@@ -2,8 +2,9 @@ import Ember from 'ember';
 import { groupBy } from '../helpers/group-by';
 
 export default Ember.Component.extend({
-  groupedPortions: Ember.computed('portions.[]', function() {
-    return groupBy(this.get('portions'), 'owner.id');
+  nonDeletedPortions: Ember.computed.filterBy('portions', 'deleted', false),
+  groupedPortions: Ember.computed('nonDeletedPortions', function() {
+    return groupBy(this.get('nonDeletedPortions'), 'owner.id');
   }),
 
   actions: {

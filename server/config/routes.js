@@ -18,7 +18,6 @@ module.exports = function applyRoutes(app) {
   app.get('/:type(orders|accounts|portions|vendors)', passport.authenticate('jwt'), api);
   app.get('/:type(orders|accounts|portions|vendors)/:id', passport.authenticate('jwt'), api);
   app.patch('/:type(orders|portions)/:id', passport.authenticate('jwt'), api);
-  app.delete('/:type(portions)/:id', passport.authenticate('jwt'), api);
   app.post('/:type(orders|portions|vendors)', passport.authenticate('jwt'), api);
   app.post('/:type(accounts)', api);
   app.patch('/:type(accounts)/:id', passport.authenticate('jwt'), api);
