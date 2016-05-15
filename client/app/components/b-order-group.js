@@ -12,7 +12,7 @@ export default Ember.Component.extend({
     return (currentAccountId !== orderManagerId);
   }),
 
-  canDelete: Ember.computed('order.active', function() {
+  canDelete: Ember.computed('session.account.id', 'order.active', function() {
     const currentAccountId = this.get('session.account.id');
     const order = this.get('order');
 
