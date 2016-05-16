@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
       portion.save().then(() => {
         order.addPortion(portion);
         if (isManager) {
-          portion.updateOrderMoney();
+          portion.updateOrderMoney(order);
         }
         order.save();
       });
