@@ -15,7 +15,7 @@
     "cookie-parser": "^1.4.1",
     "cookie-session": "^2.0.0-alpha.1",
     "express": "^4.13.4",
-    "googleapis": "^6.1.0",
+    "googleapis": "^59.0.0",
     "json-api": "^2.15.7",
     "jsonwebtoken": "^5.7.0",
     "mongo": "^0.1.0",
